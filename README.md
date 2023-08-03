@@ -9,8 +9,10 @@ It uses the accessibility interface which handles UI and design related adjustme
 
 [`All in One Accessibility introduction`](https://www.youtube.com/watch?v=PPQMWSzroAA) - introduction of All in One Accessibility widget .
 
-## Installation
--   ![plot](/image/first.png)
+## Features
+![plot](/image/first.png)
+
+![plot](/image/second.png)
     
 
 

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record
+                id="res_config_settings_view_form_login_background"
+                model="ir.ui.view">
+            <field name="name">res.config.settings.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='companies']" position="after">
+                    <!-- <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="All in One Accessibility Setting" string="All in One Accessibility Setting" data-key="All_in_One_Accessibility_Setting"> -->
+                    <div>
+                        <h2>All in One Accessibility Setting</h2>
+                        <div class="row mt16 o_settings_container"
+                             name="default_taxes_setting_container">
+                            <div class="col-12 col-lg-6 o_setting_box"
+                                 id="default_taxes">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                        <form>
+                                        <div class="row mt16">
+                                            <label string="License Key" for="aioa_license_key" class="col-lg-3 o_light_label fw-bold"/>
+                                            <field name="aioa_license_key" eval="True"/>
+                                            <span class='validate_pro'>
+                                                <p>You are currently using Free version which have limited features.
+                                                    <br>
+                                                        Please
+                                                    </br>
+                                                    <a href='https://www.skynettechnologies.com/add-ons/product/all-in-one-accessibility/'>purchase</a>
+                                                    License Key for additional features on the ADA Widget
+                                                </p>
+                                               </span>
+                                        </div>
+                                        <div class="row mt16">
+                                            <label string="Hex color code" for="aioa_color_code" class="col-lg-3 o_light_label fw-bold"/>
+                                            <field name="aioa_color_code"></field>
+                                            <span class='validate_pro'>
+                                                <p>
+                                                    You can cutomize the ADA Widget color. For example: #FF5733
+                                                </p>
+                                               </span>
+                                        </div>
+                                        <div class="row mt16">
+                                            <label string="Place" for="style" class="col-lg-3 o_light_label fw-bold"/>
+                                            <field name="style" eval="True" />
+                                        </div>
+                                        <div class="row mt16">
+                                            <label name='aioa_icon_type' string="Icon Type" for = "aioa_icon_type" class="col-lg-3 o_light_label fw-bold"/>
+                                            <field name="aioa_icon_type"  widget="radio"  options="{'horizontal': true} " />
+                                        </div>
+                                        <div class="row mt16">
+                                            <label  name='aioa_icon_size_desktop' string="Icon size for Desktop" for = "aioa_icon_size_desktop" class="col-lg-3 o_light_label fw-bold"/>
+                                            <field name="aioa_icon_size_desktop"  widget="radio" options="{'horizontal': true}" />
+                                        </div>
+                                        <div class="row mt16">
+                                            <label  name='aioa_icon_size_mobile' string="Icon size for Mobile" for = "aioa_icon_size_mobile" class="col-lg-3 o_light_label fw-bold"/>
+                                            <field name="aioa_icon_size_mobile"  widget="radio" options="{'horizontal': true}" />
+                                        </div>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        document.querySelector("#aioa_license_key").addEventListener("keyup", (event) => {
+                            if(document.querySelector("#aioa_license_key").value.length > 15)
+                            {
+                                document.querySelector(".validate_pro").style.display="none";
+                                document.querySelector('div[name="aioa_icon_type"]').style.display='block';
+                                document.querySelector('div[name="aioa_icon_size_desktop"]').style.display='block';
+                                document.querySelector('div[name="aioa_icon_size_mobile"]').style.display='block';
+                                document.querySelector('label[for="aioa_icon_type"]').style.display='block';
+                                document.querySelector('label[for="aioa_icon_size_desktop"]').style.display='block';
+                                document.querySelector('label[for="aioa_icon_size_mobile"]').style.display='block';
+                            }
+                            else
+                            {
+                                document.querySelector(".validate_pro").style.display="block";
+                                document.querySelector('div[name="aioa_icon_type"]').style.display='none';
+                                document.querySelector('div[name="aioa_icon_size_desktop"]').style.display='none';
+                                document.querySelector('div[name="aioa_icon_size_mobile"]').style.display='none';
+                                document.querySelector('label[for="aioa_icon_type"]').style.display='none';
+                                document.querySelector('label[for="aioa_icon_size_desktop"]').style.display='none';
+                                document.querySelector('label[for="aioa_icon_size_mobile"]').style.display='none';
+                            }
+                        });
+
+                    </script>
+
+                    <script type="text/javascript">
+                        var element = document.querySelectorAll('input[name="radio_field_1"]');
+                        console.log(element);
+                        var total = 0;
+                        for (var img of element ){
+                            total +=1;
+                            const next = img.nextElementSibling;
+                           
+                            const script = document.createElement("img");
+                            script.src = 'https://skynettechnologies.com/sites/default/files/python/aioa-icon-type-'+total+'.svg';
+                            script.height = 55;
+                            script.width = 55;
+                            next.append(script);
+                        }
+                    </script>
+
+                    <script type="text/javascript">
+
+                        var element = document.querySelectorAll('input[name="radio_field_2"]');
+                        var new_element_value = document.querySelector('input[name="radio_field_1"]:checked');
+                        var value_total = 85;
+                        
+                        if(new_element_value == null){
+
+    
+                            for (var img of element ){
+                              
+                                value_total -= 10;
+                                const next = img.nextElementSibling;
+                               
+                                const script = document.createElement("img");
+                                script.src = 'https://skynettechnologies.com/sites/default/files/python/aioa-icon-type-1.svg';
+                                script.height = value_total;
+                                script.width = value_total;
+                       
+                                script.setAttribute("class", "csticontype");
+                                next.append(script);}
+                        }
+                        else
+                        {
+                            for (var img of element ){
+                              
+                                value_total -= 10;
+                                const next = img.nextElementSibling;
+                               
+                                const script = document.createElement("img");
+                                script.src = 'https://skynettechnologies.com/sites/default/files/python/'+document.querySelector('input[name="radio_field_1"]:checked').getAttribute("data-value")+'.svg';
+                                script.height = value_total;
+                                script.width = value_total;
+                       
+                                script.setAttribute("class", "csticontype");
+                                next.append(script);}
+                        }
+                        
+
+                            
+                    </script>
+
+                    <script type="text/javascript">
+
+                        var element = document.querySelectorAll('input[name="radio_field_3"]');
+                        var new_element_value1 = document.querySelector('input[name="radio_field_1"]:checked');
+                        var value_total = 85;
+                        
+                        if(new_element_value1 == null){
+
+    
+                            for (var img of element ){
+                              
+                                value_total -= 10;
+                                const next = img.nextElementSibling;
+                               
+                                const script = document.createElement("img");
+                                script.src = 'https://skynettechnologies.com/sites/default/files/python/aioa-icon-type-1.svg';
+                                script.height = value_total;
+                                script.width = value_total;
+                       
+                                script.setAttribute("class", "csticontype");
+                                next.append(script);}
+                        }
+                        else
+                        {
+                            for (var img of element ){
+                              
+                                value_total -= 10;
+                                const next = img.nextElementSibling;
+                               
+                                const script = document.createElement("img");
+                                script.src = 'https://skynettechnologies.com/sites/default/files/python/'+document.querySelector('input[name="radio_field_1"]:checked').getAttribute("data-value")+'.svg';
+                                script.height = value_total;
+                                script.width = value_total;
+                       
+                                script.setAttribute("class", "csticontype");
+                                next.append(script);}
+                        }
+                        
+
+                            
+                    </script>
+
+                    <script type="text/javascript">
+         
+                        var sizeOptionsImg = document.querySelectorAll('.csticontype');
+                        var typeOptions = document.querySelectorAll('input[name="radio_field_1"]');
+                        typeOptions.forEach(option => {
+                            option.addEventListener("click", (event) => {
+                                sizeOptionsImg.forEach(option2 => {
+                                    var ico_type = document.querySelector('input[name="radio_field_1"]:checked').getAttribute("data-value");
+                                    option2.setAttribute("src", "https://skynettechnologies.com/sites/default/files/python/" + ico_type + ".svg");
+                                });
+                            });
+                        });
+                            
+
+                    </script>
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+    
+</odoo>

@@ -1,5 +1,5 @@
 # All in One Accessibility
-- All in One Accessibility widget improves Odoo website ADA compliance and browser experience for ADA, WCAG 2.1, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, California Unruh, Ontario AODA, Canada ACA, German BITV, and France RGAA.
+- All in One Accessibility widget improves Odoo website ADA compliance and browser experience ADA, WCAG 2.1, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, California Unruh, Ontario AODA, Canada ACA, German BITV, and France RGAA standards.
 - 2 Minute installation
 - Screen Reader, dynamic widget color and position, supports multiple languages (40 languages)
 - Reduces the risk of time-consuming accessibility lawsuits.

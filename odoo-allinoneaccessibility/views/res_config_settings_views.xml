@@ -111,7 +111,6 @@
                                 document.querySelector(".validate_pro").style.display="none";
                                 document.querySelector('div[name="aioa_icon_type"]').style.display='block';
                                 document.querySelector('div[name="aioa_icon_size_desktop"]').style.display='block';
-                                document.querySelector('div[name="aioa_icon_size_mobile"]').style.display='block';
                                 document.querySelector('label[for="aioa_icon_type"]').style.display='block';
                                 document.querySelector('label[for="aioa_icon_size_desktop"]').style.display='block';
                             }
@@ -120,7 +119,6 @@
                                 document.querySelector(".validate_pro").style.display="block";
                                 document.querySelector('div[name="aioa_icon_type"]').style.display='none';
                                 document.querySelector('div[name="aioa_icon_size_desktop"]').style.display='none';
-                                document.querySelector('div[name="aioa_icon_size_mobile"]').style.display='none';
                                 document.querySelector('label[for="aioa_icon_type"]').style.display='none';
                                 document.querySelector('label[for="aioa_icon_size_desktop"]').style.display='none';
                             }

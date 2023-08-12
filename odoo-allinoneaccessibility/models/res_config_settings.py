@@ -33,8 +33,8 @@ class ResConfigSettings(models.TransientModel):
     @api.model  
     def default_get(self, fields):
         result = super(ResConfigSettings, self).default_get(fields)         
-        result.update({'aioa_icon_type':self.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.aioa_icon_type') or '','aioa_icon_size_desktop':self.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.aioa_icon_size_desktop') or '','aioa_icon_size_mobile':self.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.aioa_icon_size_mobile') or '',
-                       'style':self.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.style') or ''})
+        result.update({'aioa_icon_type':self.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.aioa_icon_type') or 'aioa-icon-type-1','aioa_icon_size_desktop':self.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.aioa_icon_size_desktop') or 'aioa-default-icon','aioa_icon_size_mobile':self.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.aioa_icon_size_mobile') or '',
+                       'style':self.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.style') or 'bottom_right'})
         return result
     
     def get_values(self):

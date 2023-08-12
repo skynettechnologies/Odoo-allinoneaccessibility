@@ -97,10 +97,6 @@
                                             <label  name='aioa_icon_size_desktop' string="Icon size for Desktop" for = "aioa_icon_size_desktop" class="col-lg-3 o_light_label fw-bold"/>
                                             <field name="aioa_icon_size_desktop"  class="aioa_icon_type_wrapper"  widget="radio" options="{'horizontal': true}" />
                                         </div>
-                                        <div class="row mt16">
-                                            <label  name='aioa_icon_size_mobile' string="Icon size for Mobile" for = "aioa_icon_size_mobile" class="col-lg-3 o_light_label fw-bold"/>
-                                            <field name="aioa_icon_size_mobile"  class="aioa_icon_type_wrapper"  widget="radio" options="{'horizontal': true}" />
-                                        </div>
                                     </form>
                                     </div>
                                 </div>
@@ -118,7 +114,6 @@
                                 document.querySelector('div[name="aioa_icon_size_mobile"]').style.display='block';
                                 document.querySelector('label[for="aioa_icon_type"]').style.display='block';
                                 document.querySelector('label[for="aioa_icon_size_desktop"]').style.display='block';
-                                document.querySelector('label[for="aioa_icon_size_mobile"]').style.display='block';
                             }
                             else
                             {
@@ -128,15 +123,16 @@
                                 document.querySelector('div[name="aioa_icon_size_mobile"]').style.display='none';
                                 document.querySelector('label[for="aioa_icon_type"]').style.display='none';
                                 document.querySelector('label[for="aioa_icon_size_desktop"]').style.display='none';
-                                document.querySelector('label[for="aioa_icon_size_mobile"]').style.display='none';
                             }
                         });
 
                     </script>
 
                     <script type="text/javascript">
-                        var element = document.querySelectorAll('input[name="radio_field_1"]');
-                        console.log(element);
+                        var radiogroup1 = document.querySelectorAll('div[role="radiogroup"]')[0].querySelector("input[type='radio']").getAttribute("name");
+                        var radiogroup2 = document.querySelectorAll('div[role="radiogroup"]')[1].querySelector("input[type='radio']").getAttribute("name");
+                        var element = document.querySelectorAll('input[name="'+radiogroup1+'"]');
+                        console.log(element,"---------------");
                         var total = 0;
                         for (var img of element ){
                             total +=1;
@@ -152,8 +148,8 @@
 
                     <script type="text/javascript">
 
-                        var element = document.querySelectorAll('input[name="radio_field_2"]');
-                        var new_element_value = document.querySelector('input[name="radio_field_1"]:checked');
+                        var element = document.querySelectorAll('input[name="'+radiogroup2+'"]');
+                        var new_element_value = document.querySelector('input[name="'+radiogroup1+'"]:checked');
                         var value_total = 85;
                         
                         if(new_element_value == null){
@@ -180,49 +176,7 @@
                                 const next = img.nextElementSibling;
                                
                                 const script = document.createElement("img");
-                                script.src = 'https://skynettechnologies.com/sites/default/files/python/'+document.querySelector('input[name="radio_field_1"]:checked').getAttribute("data-value")+'.svg';
-                                script.height = value_total;
-                                script.width = value_total;
-                       
-                                script.setAttribute("class", "csticontype");
-                                next.append(script);}
-                        }
-                        
-
-                            
-                    </script>
-
-                    <script type="text/javascript">
-
-                        var element = document.querySelectorAll('input[name="radio_field_3"]');
-                        var new_element_value1 = document.querySelector('input[name="radio_field_1"]:checked');
-                        var value_total = 85;
-                        
-                        if(new_element_value1 == null){
-
-    
-                            for (var img of element ){
-                              
-                                value_total -= 10;
-                                const next = img.nextElementSibling;
-                               
-                                const script = document.createElement("img");
-                                script.src = 'https://skynettechnologies.com/sites/default/files/python/aioa-icon-type-1.svg';
-                                script.height = value_total;
-                                script.width = value_total;
-                       
-                                script.setAttribute("class", "csticontype");
-                                next.append(script);}
-                        }
-                        else
-                        {
-                            for (var img of element ){
-                              
-                                value_total -= 10;
-                                const next = img.nextElementSibling;
-                               
-                                const script = document.createElement("img");
-                                script.src = 'https://skynettechnologies.com/sites/default/files/python/'+document.querySelector('input[name="radio_field_1"]:checked').getAttribute("data-value")+'.svg';
+                                script.src = 'https://skynettechnologies.com/sites/default/files/python/'+document.querySelector('input[name="'+radiogroup1+'"]:checked').getAttribute("data-value")+'.svg';
                                 script.height = value_total;
                                 script.width = value_total;
                        

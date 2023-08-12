@@ -17,6 +17,7 @@
     ],
     'qweb': [
     ],
+    'images': ['static/description/banner.jpg'],
     'installable': True,
     'application': True,
     'support':'hello@skynettechnologies.com',

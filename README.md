@@ -188,9 +188,9 @@ Differentiate both the version (Free and Pro) and select based on your requireme
 *   Read Mode
 *   Hide Interface
 
-![plot](/image/first.png)
+![plot](odoo-allinoneaccessibility/image/first.png)
 
-![plot](/image/second.png)
+![plot](odoo-allinoneaccessibility/image/second.png)
 
 ### Limitations:
 

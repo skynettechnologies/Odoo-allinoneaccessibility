@@ -1,192 +1,16 @@
 **Quick Web Accessibility Implementation with Odoo All In One Accessibility module!**
 
-The All In One Accessibility widget is developed to improve accessibility and usability of your website. It uses the accessibility interface which handles UI and design related adjustments.
+All in One Accessibility AI free Widget Supports limited 23 features only and includes 140 Languages.
 
-Enable wide array of people with disabilities to use your Odoo website effectively with All In One Accessibility widget. It will integrate basic accessibility features according to the **ADA, WCAG 2.1, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, California Unruh, Ontario AODA, Canada ACA, German BITV, and France RGAA** standards to make it accessible to people with hearing or vision impairments, cognitive impairments, and perception problems.
+It improves website ADA compliance and browser experience for ADA, WCAG 2.0, 2.1 & 2.2, Section 508, California Unruh Act, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, Ontario AODA, Canada ACA, German BITV, France RGAA, Brazilian Inclusion Law (LBI 13.146/2015), Spain UNE 139803:2012, JIS X 8341 (Japan), Italian Stanca Act and Switzerland DDA Standards.
 
-Differentiate both the version (Free and Pro) and select based on your requirements.
+Follows the best industry security, SEO practices and standards ISO 9001:2015 & ISO 27001:2013 and complies with GDPR, COPPA regulations. Member of W3C and International Association of Accessibility Professionals (IAAP). It is a flexible & lightweight widget that can be changed according to law and reduces the risk of time-consuming accessibility lawsuits.
 
-[`All in One Accessibility introduction`](https://www.youtube.com/watch?v=PPQMWSzroAA) - introduction of All in One Accessibility widget .
+For more details/features, Please visit [All in One Accessibility](https://www.skynettechnologies.com/all-in-one-accessibility)
 
-### Odoo All In One Accessibility Free Version:
+Unlock over 70 features with the All in One Accessibility Widget through a paid subscription. See the detailed comparison of Paid vs. Free features [here](https://www.skynettechnologies.com/all-in-one-accessibility/features).
 
-**Skip Links**
-
-*   Skip to Menu
-*   Skip to Footer
-*   Skip to Navigation
-*   Open Accessibility Toolbar
-
-**Content Adjustments**
-
-*   Adjust Font Sizing
-*   Adjust Line Height
-*   Content Scaling
-*   Readable Fonts
-*   Highlight Title
-*   Highlight Links
-*   Text Magnifier
-*   Adjust Letter Spacing
-*   Align Center
-*   Align Left
-*   Align Right
-
-**Color Adjustments**
-
-*   High Contrast
-
-**Orientation Adjustments**
-
-*   Hide Images
-*   Reading Mask
-
-**Multi-Language**
-
-*   English
-*   Spanish
-*   German
-*   Arabic
-*   Slovak
-*   Portuguese
-*   French
-*   Italian
-*   Polish
-*   Turkish
-*   Japanese
-*   Finnish
-*   Russian
-*   Hungarian
-*   Latin
-*   Greek
-*   Hebrew
-*   Bulgarian
-*   Catalan
-*   Chinese
-*   Czech
-*   Danish
-*   Dutch
-*   Hindi
-*   Indonesian
-*   Korean
-*   Lithuanian
-*   Malay
-*   Norwegian
-*   Romanian
-*   Slovenian
-*   Swedish
-*   Thai
-*   Ukrainian
-*   Vietnamese
-*   Bengali
-*   Sinhala
-*   Amharic
-*   Hmong
-*   Myanmar (Burmese)
-
-**Miscellaneous**
-
-*   Accessibility Statement
-*   Dynamic Widget Color
-*   Choose Widget Trigger Button Position
-*   Choose Widget Position
-*   Multi Language
-
-  
-
-### Odoo All In One Accessibility Pro Version: (It includes all the features of Free Version + additional features as below)
-
-**Content Adjustments**
-
-*   Content Scaling
-*   Readable Fonts
-*   Highlight Title
-*   Highlight Links
-*   Text Magnifier
-*   Adjust Font Sizing
-*   Adjust Line Height
-*   Adjust Letter Spacing
-*   Align Center
-*   Align Left
-*   Align Right
-
-**Color Adjustments**
-
-*   Dark Contrast
-*   Monochrome
-*   Light Contrast
-*   High Saturation
-*   High Contrast
-*   Smart Contrast
-*   Low Saturation
-*   Invert Colors
-*   Adjust Background Colors
-*   Adjust Text Colors
-*   Adjust Title Colors
-
-**Orientation Adjustments**
-
-*   Mute Sounds
-*   Hide Images
-*   Reading Guide
-*   Stop Animation
-*   Reading Mask
-*   Highlight Hover
-*   Highlight Focus
-*   Big Black Cursor
-*   Big White Cursor
-
-**Multi-Language**
-
-*   English
-*   Spanish
-*   German
-*   Arabic
-*   Slovak
-*   Portuguese
-*   French
-*   Italian
-*   Polish
-*   Turkish
-*   Japanese
-*   Finnish
-*   Russian
-*   Hungarian
-*   Latin
-*   Greek
-*   Hebrew
-*   Bulgarian
-*   Catalan
-*   Chinese
-*   Czech
-*   Danish
-*   Dutch
-*   Hindi
-*   Indonesian
-*   Korean
-*   Lithuanian
-*   Malay
-*   Norwegian
-*   Romanian
-*   Slovenian
-*   Swedish
-*   Thai
-*   Ukrainian
-*   Vietnamese
-*   Bengali
-*   Sinhala
-*   Amharic
-*   Hmong
-*   Myanmar (Burmese)
-
-**Miscellaneous**
-
-*   Accessibility Statement
-*   Dynamic Widget Color
-*   Choose Widget Trigger Button Position
-*   Choose Widget Position
-*   Multi Language
-*   Read Mode
-*   Hide Interface
+We provide a 10-day free trial. Get started [here](https://ada.skynettechnologies.us/trial-subscription?utm_source=all-in-one-accessibility&utm_medium=landing-page&utm_campaign=trial-subscription).
 
 ![plot](odoo-allinoneaccessibility/image/first.png)
 
@@ -195,3 +19,56 @@ Differentiate both the version (Free and Pro) and select based on your requireme
 ### Limitations:
 
 *   JavaScript must be enabled on the browser.
+
+## Screenshots
+
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-1.jpg?v=2)
+
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-2.jpg?v=2)
+
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-3.jpg?v=2)
+
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-4.jpg?v=2)
+
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-5.jpg?v=2)
+
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-6.jpg?v=2)
+
+## Video
+
+[![All in One Accessibility](https://img.youtube.com/vi/I-DjgZyleeI/0.jpg)](https://www.youtube.com/watch?v=I-DjgZyleeI)
+
+## Documentation
+
+- [Purchase Odoo All in One Accessibility](https://www.skynettechnologies.com/odoo-accessibility-app)
+- [How to install All in One Accessibility App on Odoo](https://www.skynettechnologies.com/blog/odoo-web-accessibility-widget-installation)
+- [All in One Accessibility - Features Guide](https://www.skynettechnologies.com/sites/default/files/accessibility-widget-features-list.pdf)
+
+## Submit a Support Request
+
+Please visit our [support page](https://www.skynettechnologies.com/report-accessibility-problem) and fill out the form. Our team will get back to you as soon as possible.
+
+## Send Us an Email
+
+Alternatively, you can send an email to our support team:
+[hello@skynettechnologies.com](mailto:hello@skynettechnologies.com)
+
+## Partnership Opportunities
+
+#### [Agency Partnership](https://www.skynettechnologies.com/agency-partners)
+
+Partner with us as an agency to provide comprehensive accessibility solutions to your clients. Get access to exclusive resources, training, and support to help you implement and manage accessibility features effectively.
+
+#### [Affiliate Partnership](https://www.skynettechnologies.com/affiliate-partner)
+
+Join our affiliate program and earn commissions by promoting All in One Accessibility™. Share our Widget with your network and help businesses improve their website accessibility while generating revenue.
+
+For more details, Please visit [Partnership Opportunities Page](https://www.skynettechnologies.com/partner-program)
+
+## Credits
+
+This addon is developed and maintained by [Skynet Technologies USA LLC](https://www.skynettechnologies.com)
+
+## Current Maintainers
+- [Skynet Technologies USA LLC](https://github.com/skynettechnologies)
+

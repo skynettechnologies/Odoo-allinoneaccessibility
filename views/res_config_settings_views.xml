@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record
-                id="res_config_settings_view_all_in_one_accessibility"
-                model="ir.ui.view">
+        <record id="res_config_settings_view_all_in_one_accessibility" model="ir.ui.view">
             <field name="name">res.config.settings.form.inherit</field>
             <field name="model">res.config.settings</field>
             <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
@@ -101,7 +99,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                     <script type="text/javascript">
@@ -135,7 +133,7 @@
                         for (var img of element ){
                             total +=1;
                             const next = img.nextElementSibling;
-                           
+
                             const script = document.createElement("img");
                             script.src = 'https://skynettechnologies.com/sites/default/files/python/aioa-icon-type-'+total+'.svg';
                             script.height = 55;
@@ -149,45 +147,45 @@
                         var element = document.querySelectorAll('input[name="'+radiogroup2+'"]');
                         var new_element_value = document.querySelector('input[name="'+radiogroup1+'"]:checked');
                         var value_total = 85;
-                        
+
                         if(new_element_value == null){
 
-    
+
                             for (var img of element ){
-                              
+
                                 value_total -= 10;
                                 const next = img.nextElementSibling;
-                               
+
                                 const script = document.createElement("img");
                                 script.src = 'https://skynettechnologies.com/sites/default/files/python/aioa-icon-type-1.svg';
                                 script.height = value_total;
                                 script.width = value_total;
-                       
+
                                 script.setAttribute("class", "csticontype");
                                 next.append(script);}
                         }
                         else
                         {
                             for (var img of element ){
-                              
+
                                 value_total -= 10;
                                 const next = img.nextElementSibling;
-                               
+
                                 const script = document.createElement("img");
                                 script.src = 'https://skynettechnologies.com/sites/default/files/python/'+document.querySelector('input[name="'+radiogroup1+'"]:checked').getAttribute("data-value")+'.svg';
                                 script.height = value_total;
                                 script.width = value_total;
-                       
+
                                 script.setAttribute("class", "csticontype");
                                 next.append(script);}
                         }
-                        
 
-                            
+
+
                     </script>
 
                     <script type="text/javascript">
-         
+
                         var sizeOptionsImg = document.querySelectorAll('.csticontype');
                         var typeOptions = document.querySelectorAll('input[name="radio_field_1"]');
                         typeOptions.forEach(option => {
@@ -198,7 +196,7 @@
                                 });
                             });
                         });
-                            
+
 
                     </script>
 
@@ -206,5 +204,5 @@
             </field>
         </record>
     </data>
-    
+
 </odoo>

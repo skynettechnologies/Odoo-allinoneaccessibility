@@ -12,9 +12,10 @@ Unlock over 70 features with the All in One Accessibility Widget through a paid 
 
 We provide a 10-day free trial. Get started [here](https://ada.skynettechnologies.us/trial-subscription?utm_source=all-in-one-accessibility&utm_medium=landing-page&utm_campaign=trial-subscription).
 
-![plot](odoo-allinoneaccessibility/image/first.png)
+![plot](https://raw.githubusercontent.com/skynettechnologies/Odoo-allinoneaccessibility/main/Odoo-allinoneaccessibility/static/description/assets/screenshots/first.jpg)
 
-![plot](odoo-allinoneaccessibility/image/second.png)
+![plot](https://raw.githubusercontent.com/skynettechnologies/Odoo-allinoneaccessibility/main/Odoo-allinoneaccessibility/static/description/assets/screenshots/second.jpg)
+
 
 ### Limitations:
 

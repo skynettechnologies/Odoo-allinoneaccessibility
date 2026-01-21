@@ -2,15 +2,16 @@
 {
     'name': 'All in One Accessibility',
     'category': "Website",
-    'version': '1.1',
+    'version': '1.2',
     'license': 'OPL-1',
     'summary': 'All in One Accessibility widget is based on assistive technology and AI that helps organizations enhance the accessibility and usability of their website quickly',
-    'description': 'All in One Accessibility widget improves Odoo website ADA compliance and browser experience for ADA, WCAG 2.1, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, California Unruh, Ontario AODA, Canada ACA, German BITV, and France RGAA Standards',
+    'description': 'Website accessibility widget for improving WCAG 2.0, 2.1, 2.2 and ADA compliance!',
     'author': 'Skynet Technologies USA LLC',
     'website':'https://www.skynettechnologies.com/all-in-one-accessibility',
-    'depends': ['base', 'base_setup', 'web'],
+    'depends': ['base', 'base_setup', 'web', 'website'],
     'data': [
         # 'security/ir.model.access.csv',
+        # 'views/templates.xml',
         'views/res_config_settings_views.xml',
         'templates/base_url_passing.xml',
 
@@ -21,5 +22,9 @@
     'installable': True,
     'application': True,
     'support':'hello@skynettechnologies.com',
+    'assets': {
+        'web.assets_backend': [
+        ],
+    },
 }
 

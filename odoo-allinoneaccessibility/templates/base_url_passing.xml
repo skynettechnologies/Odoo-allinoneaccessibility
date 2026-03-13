@@ -1,8 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <template id="odoo_accessibility" inherit_id="portal.frontend_layout"  name="Accessibility">
-            <xpath expr="//header" position="after">
-                <script id= "aioa-adawidget" t-attf-src="{{request.env['ir.config_parameter'].sudo().get_param('all_in_one_accessibility.base_url')}}"></script>                    
-            </xpath>
-        </template>
+  <template id="odoo-accessibility"
+            inherit_id="website.layout"
+            name="Accessibility Widget">
+
+    <xpath expr="//header" position="after">
+
+      <t t-set="ICP" t-value="request.env['ir.config_parameter'].sudo()"/>
+
+      <t t-set="no_required_eu"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.no_required_eu', '1')"/>
+      <t t-set="api_called"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.api_called', 'False')"/>
+      <t t-set="aioa_color"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.color_code', '420083').lstrip('#')"/>
+      <t t-set="aioa_token"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.license_key', '')"/>
+      <t t-set="aioa_precise"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.precise_position', 'False')"/>
+      <t t-set="aioa_style"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.style', 'bottom_right')"/>
+      <t t-set="aioa_position"
+         t-value="'' if aioa_precise == 'True' else aioa_style"/>
+      <t t-set="aioa_icon_type"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.icon_type', 'aioa-icon-type-1')"/>
+      <t t-set="aioa_size"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.size', 'regular')"/>
+      <t t-set="aioa_icon_desk"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.icon_size_desktop', 'aioa-default-icon')"/>
+      <t t-set="aioa_custom_size"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.custom_icon_size', 'False')"/>
+      <t t-set="aioa_custom_size_px"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.custom_icon_size_px', '50')"/>
+      <t t-set="aioa_offset_right"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.offset_right', '20')"/>
+      <t t-set="aioa_offset_right_dir"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.offset_right_dir', 'to_the_left')"/>
+      <t t-set="aioa_offset_bottom"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.offset_bottom', '20')"/>
+      <t t-set="aioa_offset_bottom_dir"
+         t-value="ICP.get_param('odoo-allinoneaccessibility.offset_bottom_dir', 'to_the_bottom')"/>
+      <t t-set="aioa_base_url"
+         t-value="ICP.get_param('web.base.url', '')"/>
+
+      <!-- NON-EU widget script -->
+      <t t-if="no_required_eu == '1'">
+        <script id="aioa-adawidget"
+                t-att-src="'https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=%23' + aioa_color + '&amp;token=' + aioa_token + '&amp;position=' + aioa_position">
+        </script>
+      </t>
+
+      <!-- EU widget script -->
+      <t t-if="no_required_eu == '0'">
+        <script id="aioa-adawidget"
+                t-att-src="'https://eu.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=%23' + aioa_color + '&amp;token=' + aioa_token + '&amp;position=' + aioa_position">
+        </script>
+      </t>
+
+      <script type="text/javascript">
+        (function() {
+            var baseUrl         = '<t t-out="aioa_base_url"/>';
+            var apiCalled       = '<t t-out="api_called"/>';
+            var color           = '<t t-out="aioa_color"/>';
+            var token           = '<t t-out="aioa_token"/>';
+            var position        = '<t t-out="aioa_position"/>';
+            var iconType        = '<t t-out="aioa_icon_type"/>';
+            var size            = '<t t-out="aioa_size"/>';
+            var iconDesk        = '<t t-out="aioa_icon_desk"/>';
+            var noEu            = '<t t-out="no_required_eu"/>';
+            var precise         = '<t t-out="aioa_precise"/>';
+            var customSize      = '<t t-out="aioa_custom_size"/>';
+            var customSizePx    = parseInt('<t t-out="aioa_custom_size_px"/>') || 50;
+            var offsetRight     = parseInt('<t t-out="aioa_offset_right"/>') || 20;
+            var offsetRightDir  = '<t t-out="aioa_offset_right_dir"/>';
+            var offsetBottom    = parseInt('<t t-out="aioa_offset_bottom"/>') || 20;
+            var offsetBottomDir = '<t t-out="aioa_offset_bottom_dir"/>';
+
+            var domain = baseUrl;
+            if (baseUrl.indexOf('://') !== -1) {
+                var parts = baseUrl.split('://');
+                var host  = parts[1].split('/')[0].split(':')[0];
+                domain    = parts[0] + '://' + host;
+            }
+
+            function setParam(key, value) {
+                return fetch('/web/dataset/call_kw', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        jsonrpc: '2.0',
+                        method:  'call',
+                        params:  {
+                            model:  'ir.config_parameter',
+                            method: 'set_param',
+                            args:   [key, value],
+                            kwargs: {}
+                        }
+                    })
+                });
+            }
+
+            // 1. Register domain once on first install — fire and forget, no reload
+            if (apiCalled !== 'True') {
+                var domainName = domain.split('://')[1] || domain;
+                fetch('https://ada.skynettechnologies.us/api/add-user-domain', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name:            domainName,
+                        email:           'no-reply@' + domainName,
+                        company_name:    '',
+                        website:         btoa(domain),
+                        package_type:    'free-widget',
+                        start_date:      new Date().toISOString(),
+                        end_date:        '',
+                        price:           '',
+                        discount_price:  '0',
+                        platform:        'Odoo',
+                        api_key:         '',
+                        is_trial_period: '',
+                        is_free_widget:  '1',
+                        bill_address:    '',
+                        country:         '',
+                        state:           '',
+                        city:            '',
+                        post_code:       '',
+                        transaction_id:  '',
+                        subscr_id:       '',
+                        payment_source:  '',
+                        no_required_eu:  noEu === '0' ? 0 : 1
+                    }),
+                    mode: 'no-cors'
+                }).then(function() {
+                    setParam('odoo-allinoneaccessibility.api_called', 'True');
+                }).catch(function() {
+                    setParam('odoo-allinoneaccessibility.api_called', 'True');
+                });
+            }
+
+            // 2. Always sync current settings to external API on page load.
+            //    Uses localStorage to avoid spamming the API on every visit —
+            //    only syncs when the stored settings hash differs from current.
+            //    NO window.location.reload() anywhere — zero extra page loads.
+            (function syncWidgetSettings() {
+                var payload = {
+                    u:                         domain,
+                    widget_color_code:         '#' + color,
+                    widget_icon_type:          iconType,
+                    widget_position:           precise === 'True' ? '' : position,
+                    widget_size:               size === 'oversize' ? 1 : 0,
+                    is_widget_custom_position: precise === 'True' ? 1 : 0,
+                    is_widget_custom_size:     customSize === 'True' ? 1 : 0
+                };
+
+                if (customSize === 'True') {
+                    payload.widget_icon_size        = '';
+                    payload.widget_icon_size_custom = customSizePx;
+                } else {
+                    payload.widget_icon_size        = iconDesk;
+                    payload.widget_icon_size_custom = 0;
+                }
+
+                if (precise === 'True') {
+                    payload.widget_position_right      = offsetRight;
+                    payload.widget_position_right_dir  = offsetRightDir;
+                    payload.widget_position_bottom     = offsetBottom;
+                    payload.widget_position_bottom_dir = offsetBottomDir;
+                }
+
+                // Only call the API if settings have changed since last sync
+                var currentHash = JSON.stringify(payload);
+                var lastHash    = '';
+                try { lastHash = localStorage.getItem('aioa_last_sync') || ''; } catch(e) {}
+
+                if (currentHash === lastHash) {
+                    return; // Nothing changed, skip API call
+                }
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://ada.skynettechnologies.us/api/widget-setting-update-platform', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    // Save hash so we don't re-sync until settings change again
+                    try { localStorage.setItem('aioa_last_sync', currentHash); } catch(e) {}
+                    try { localStorage.removeItem('widgetSettings'); } catch(e) {}
+                    // NO reload here — widget script tag already has updated params
+                    // in its src URL, so it will load fresh settings automatically
+                };
+                xhr.onerror = function() {
+                    // On error, don't save hash so it retries next page load
+                };
+                xhr.send(JSON.stringify(payload));
+            })();
+
+        })();
+      </script>
+
+    </xpath>
+  </template>
 </odoo>

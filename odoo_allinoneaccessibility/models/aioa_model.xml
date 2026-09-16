@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="0">
-
+    
         <!-- MODEL: x_aioa.settings -->
         <record id="model_aioa_settings" model="ir.model">
             <field name="name">AIOA Settings</field>
@@ -291,7 +291,7 @@
             <field name="help">20 - 150px permitted</field>
         </record>
 
-        <!-- DEFAULT VALUES -->
+        <!-- DEFAULT VALUES (ir.default — for new record creation) -->
         <record id="default_aioa_style" model="ir.default">
             <field name="field_id" ref="field_aioa_style"/>
             <field name="json_value">"bottom_right"</field>
@@ -333,72 +333,6 @@
             <field name="json_value">"420083"</field>
         </record>
 
-        <!-- ============================================================
-             SYSTEM PARAMETERS — Reset to defaults on every install/upgrade
-             First DELETE existing keys to avoid UniqueViolation on reinstall,
-             then recreate them with XML ids so future upgrades can update them.
-             ============================================================ -->
-        <delete model="ir.config_parameter" search="[('key', 'like', 'odoo_allinoneaccessibility.')]"/>
-        <record id="param_color_code" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.color_code</field>
-            <field name="value">420083</field>
-        </record>
-        <record id="param_style" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.style</field>
-            <field name="value">bottom_right</field>
-        </record>
-        <record id="param_icon_type" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.icon_type</field>
-            <field name="value">aioa-icon-type-1</field>
-        </record>
-        <record id="param_size" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.size</field>
-            <field name="value">regular</field>
-        </record>
-        <record id="param_icon_size_desktop" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.icon_size_desktop</field>
-            <field name="value">aioa-default-icon</field>
-        </record>
-        <record id="param_precise_position" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.precise_position</field>
-            <field name="value">False</field>
-        </record>
-        <record id="param_offset_right" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.offset_right</field>
-            <field name="value">20</field>
-        </record>
-        <record id="param_offset_right_dir" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.offset_right_dir</field>
-            <field name="value">to_the_left</field>
-        </record>
-        <record id="param_offset_bottom" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.offset_bottom</field>
-            <field name="value">20</field>
-        </record>
-        <record id="param_offset_bottom_dir" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.offset_bottom_dir</field>
-            <field name="value">to_the_bottom</field>
-        </record>
-        <record id="param_custom_icon_size" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.custom_icon_size</field>
-            <field name="value">False</field>
-        </record>
-        <record id="param_custom_icon_size_px" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.custom_icon_size_px</field>
-            <field name="value">50</field>
-        </record>
-        <record id="param_no_required_eu" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.no_required_eu</field>
-            <field name="value">1</field>
-        </record>
-        <record id="param_api_called" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.api_called</field>
-            <field name="value">False</field>
-        </record>
-        <record id="param_license_key" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.license_key</field>
-            <field name="value"></field>
-        </record>
 
     </data>
 </odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="odoo-accessibility"
+            inherit_id="website.layout"
+            name="Accessibility Widget">
+
+    <xpath expr="//header" position="after">
+
+      <t t-set="ICP" t-value="request.env['ir.config_parameter'].sudo()"/>
+
+      <t t-set="no_required_eu"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.no_required_eu', '1')"/>
+
+      <!-- Only these four values are sent to accessibility-loader.js:
+           colorcode, position, icontype, iconsize.
+           No token, timestamp, widget size, custom size, or extra params. -->
+      <t t-set="aioa_color"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.color_code', '420083').lstrip('#')"/>
+      <t t-set="aioa_precise"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.precise_position', 'False')"/>
+      <t t-set="aioa_style"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.style', 'bottom_right')"/>
+      <t t-set="aioa_position"
+         t-value="'' if aioa_precise == 'True' else aioa_style"/>
+      <t t-set="aioa_icon_type"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.icon_type', 'aioa-icon-type-1')"/>
+      <t t-set="aioa_icon_size"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.icon_size_desktop', 'aioa-default-icon')"/>
+
+      <!-- NON-EU widget script -->
+      <t t-if="no_required_eu == '1'">
+        <script id="aioa-adawidget"
+                type="module"
+                defer="defer"
+                t-att-src="'https://www.skynettechnologies.com/accessibility/js/accessibility-loader.js?colorcode=%23' + aioa_color + '&amp;position=' + aioa_position + '&amp;icontype=' + aioa_icon_type + '&amp;iconsize=' + aioa_icon_size">
+        </script>
+      </t>
+
+      <!-- EU widget script -->
+      <t t-if="no_required_eu == '0'">
+        <script id="aioa-adawidget"
+                type="module"
+                defer="defer"
+                t-att-src="'https://www.skynettechnologies.com/accessibility/js/accessibility-loader.js?colorcode=%23' + aioa_color + '&amp;position=' + aioa_position + '&amp;icontype=' + aioa_icon_type + '&amp;iconsize=' + aioa_icon_size">
+        </script>
+      </t>
+
+    </xpath>
+  </template>
+</odoo>

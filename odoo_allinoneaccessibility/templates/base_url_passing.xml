@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="odoo-accessibility"
+            inherit_id="website.layout"
+            name="Accessibility Widget">
+
+    <xpath expr="//header" position="after">
+
+      <t t-set="ICP" t-value="request.env['ir.config_parameter'].sudo()"/>
+
+      <t t-set="no_required_eu"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.no_required_eu', '1')"/>
+      <t t-set="api_called"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.api_called', 'False')"/>
+      <t t-set="aioa_color"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.color_code', '420083').lstrip('#')"/>
+      <t t-set="aioa_precise"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.precise_position', 'False')"/>
+      <t t-set="aioa_style"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.style', 'bottom_right')"/>
+      <t t-set="aioa_icon_type"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.icon_type', 'aioa-icon-type-1')"/>
+      <t t-set="aioa_size"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.size', 'regular')"/>
+      <t t-set="aioa_icon_desk"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.icon_size_desktop', 'aioa-default-icon')"/>
+      <t t-set="aioa_custom_size"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.custom_icon_size', 'False')"/>
+      <t t-set="aioa_custom_size_px"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.custom_icon_size_px', '50')"/>
+      <t t-set="aioa_offset_right"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.offset_right', '20')"/>
+      <t t-set="aioa_offset_right_dir"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.offset_right_dir', 'to_the_left')"/>
+      <t t-set="aioa_offset_bottom"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.offset_bottom', '20')"/>
+      <t t-set="aioa_offset_bottom_dir"
+         t-value="ICP.get_param('odoo_allinoneaccessibility.offset_bottom_dir', 'to_the_bottom')"/>
+      <t t-set="aioa_base_url"
+         t-value="ICP.get_param('web.base.url', '')"/>
+
+      <!--
+        Icon size: the widget JS accepts either a named CSS-class size
+        (aioa-big-icon / aioa-medium-icon / aioa-default-icon /
+        aioa-small-icon / aioa-extra-small-icon) OR a raw pixel number
+        when "Enable Custom Icon Size" is on — never both, and it's one
+        query key ("iconsize") either way, so this picks whichever the
+        admin actually configured.
+      -->
+      <t t-set="aioa_iconsize_value"
+         t-value="aioa_custom_size_px if aioa_custom_size == 'True' else aioa_icon_desk"/>
+
+      <!--
+        Position: standard mode sends a single "&position=" key.
+        Precise mode instead sends "&left=/&right=" plus "&top=/&bottom="
+        pixel offsets and omits "&position=" entirely — the widget JS
+        branches on which of these keys is present, so the two modes
+        must not both appear at once.
+      -->
+      <t t-set="aioa_pos_lr"
+         t-value="('&amp;left=' + aioa_offset_right) if aioa_offset_right_dir == 'to_the_left' else ('&amp;right=' + aioa_offset_right)"/>
+      <t t-set="aioa_pos_tb"
+         t-value="('&amp;top=' + aioa_offset_bottom) if aioa_offset_bottom_dir == 'to_the_top' else ('&amp;bottom=' + aioa_offset_bottom)"/>
+      <t t-set="aioa_position_params"
+         t-value="(aioa_pos_lr + aioa_pos_tb) if aioa_precise == 'True' else ('&amp;position=' + aioa_style)"/>
+
+      <!--
+        Common trailing query string shared by both the EU and non-EU
+        script tags below — color, empty token, position/offsets, then
+        widget size, icon type and icon size.
+
+        Loads accessibility-loader.js DIRECTLY rather than going through
+        all-in-one-accessibility-js-widget-minify.js — same fix applied
+        to the Odoo 18 build after a DevTools capture showed the
+        minify.js middle-man builds its own follow-up request to
+        accessibility-loader.js and APPENDS its own server-derived
+        position/icontype/iconsize onto the end of ours instead of
+        replacing them, producing duplicate keys (and a stray
+        "position=undefined" when precise mode sends left/top instead
+        of position). Requesting accessibility-loader.js ourselves, with
+        exactly one set of params, removes that ambiguity — and lets
+        icontype/iconsize/size/precise-position actually reach the
+        widget, none of which the previous colorcode+position-only
+        version here ever sent despite the settings form collecting them.
+
+        This build has no token/license-key concept (see
+        aioa_register_domain.js / aioa_save_sync_patch.js — Skynet
+        identifies the site by domain, not a token), but
+        accessibility-loader.js still reads a "token" key off its own
+        <script src>, so an explicit empty "&token=" is sent to match
+        every published Skynet install snippet (WordPress, Drupal,
+        Optimizely, etc.), which all ship "&token=" blank rather than
+        omitting the key.
+      -->
+      <t t-set="aioa_common_params"
+         t-value="'colorcode=%23' + aioa_color + '&amp;token=' + aioa_position_params + '&amp;size=' + aioa_size + '&amp;icontype=' + aioa_icon_type + '&amp;iconsize=' + aioa_iconsize_value"/>
+
+      <!-- NON-EU widget script -->
+      <t t-if="no_required_eu == '1'">
+        <script id="aioa-adawidget"
+                type="module"
+                defer="defer"
+                t-att-src="'https://www.skynettechnologies.com/accessibility/js/accessibility-loader.js?' + aioa_common_params">
+        </script>
+      </t>
+
+      <!-- EU widget script -->
+      <t t-if="no_required_eu == '0'">
+        <script id="aioa-adawidget"
+                type="module"
+                defer="defer"
+                t-att-src="'https://eu.skynettechnologies.com/accessibility/js/accessibility-loader.js?' + aioa_common_params">
+        </script>
+      </t>
+
+      <!--
+        NOTE: no license key/token anywhere in the registration/sync
+        flow — see aioa_register_domain.js / aioa_save_sync_patch.js.
+        The empty "&token=" above is only there because
+        accessibility-loader.js itself expects the key to be present.
+
+        The add-user-domain / widget-setting-update-platform API calls
+        are made from the browser (not from this template) — see:
+          static/src/js/aioa_register_domain.js   (add-user-domain, fires
+            once per session when the Settings form opens — mounted via
+            the "aioa_register_domain" widget on views/aioa_views.xml's
+            x_aioa.settings form)
+          static/src/js/aioa_save_sync_patch.js   (widget-setting-update-platform,
+            fires on the "Save and Sync Widget" button click via a
+            FormController.beforeExecuteActionButton patch)
+        Both are registered in __manifest__.py under assets/web.assets_backend,
+        so they only ever load in the Odoo backend, never on website pages.
+        This template only loads the visible widget script for real site
+        visitors — nothing here talks to the ADA API.
+      -->
+
+    </xpath>
+  </template>
+</odoo>

@@ -393,8 +393,8 @@
             <field name="key">odoo_allinoneaccessibility.api_called</field>
             <field name="value">False</field>
         </record>
-        <record id="param_license_key" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.license_key</field>
+        <record id="param_token" model="ir.config_parameter">
+            <field name="key">odoo_allinoneaccessibility.token</field>
             <field name="value"></field>
         </record>
 

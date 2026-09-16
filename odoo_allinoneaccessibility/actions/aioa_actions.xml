@@ -4,10 +4,14 @@
 
         <!-- ==========================================================
              SERVER ACTION: Save and Sync Widget (button handler)
-             Saves all values to ir.config_parameter.
-             This triggers Odoo's templates.cached_values invalidation
-             so the frontend reflects changes on next page load.
-             Sandbox safe — no imports needed.
+             Saves all values to ir.config_parameter, which the
+             frontend <script> tag (templates/base_url_passing.xml)
+             reads on every page render. The actual remote sync to
+             Skynet's API happens in JS (see
+             static/src/js/aioa_save_sync_patch.js) — server actions
+             here run in a sandboxed eval with no import access, so an
+             outbound HTTP call has to happen client-side.
+             No license key involved: nothing here is gated on a token.
         ========================================================== -->
         <record id="action_aioa_save_and_sync" model="ir.actions.server">
             <field name="name">AIOA: Save Widget Settings</field>

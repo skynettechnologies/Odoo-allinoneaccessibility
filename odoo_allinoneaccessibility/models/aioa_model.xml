@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+    <data noupdate="0">
     
         <!-- MODEL: x_aioa.settings -->
         <record id="model_aioa_settings" model="ir.model">
@@ -291,7 +291,7 @@
             <field name="help">20 - 150px permitted</field>
         </record>
 
-        <!-- DEFAULT VALUES -->
+        <!-- DEFAULT VALUES (ir.default — for new record creation) -->
         <record id="default_aioa_style" model="ir.default">
             <field name="field_id" ref="field_aioa_style"/>
             <field name="json_value">"bottom_right"</field>
@@ -335,13 +335,15 @@
 
         <!-- ============================================================
              SYSTEM PARAMETERS — Reset to defaults on every install/upgrade
-             First DELETE existing keys to avoid UniqueViolation on reinstall,
-             then recreate them with XML ids so future upgrades can update them.
+             noupdate="0" + XML id = Odoo will overwrite on every update
              ============================================================ -->
-        <delete model="ir.config_parameter" search="[('key', 'like', 'odoo_allinoneaccessibility.')]"/>
         <record id="param_color_code" model="ir.config_parameter">
             <field name="key">odoo_allinoneaccessibility.color_code</field>
             <field name="value">420083</field>
+        </record>
+        <record id="param_token" model="ir.config_parameter">
+            <field name="key">odoo_allinoneaccessibility.token</field>
+            <field name="value"></field>
         </record>
         <record id="param_style" model="ir.config_parameter">
             <field name="key">odoo_allinoneaccessibility.style</field>
@@ -394,10 +396,6 @@
         <record id="param_api_called" model="ir.config_parameter">
             <field name="key">odoo_allinoneaccessibility.api_called</field>
             <field name="value">False</field>
-        </record>
-        <record id="param_license_key" model="ir.config_parameter">
-            <field name="key">odoo_allinoneaccessibility.license_key</field>
-            <field name="value"></field>
         </record>
 
     </data>

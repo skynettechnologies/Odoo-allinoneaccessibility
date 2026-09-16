@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+      <data noupdate="0">
 
-        <!-- ══ Default record created on install ══ -->
+        <!-- ══ Default record created on install only, not overwritten on upgrade ══ -->
         <record id="aioa_settings_default" model="x_aioa.settings">
             <field name="x_name">Default</field>
             <field name="x_color_code">420083</field>
-            <field name="x_style">bottom_left</field>
+            <field name="x_style">bottom_right</field>
             <field name="x_icon_type">aioa-icon-type-1</field>
             <field name="x_icon_size_desktop">aioa-default-icon</field>
             <field name="x_size">regular</field>
         </record>
+    </data>
 
-        <!-- CORRECT -->
+    <data>
+
+        <!-- ══ List View ══ -->
         <record id="view_aioa_settings_list" model="ir.ui.view">
             <field name="name">x_aioa.settings.list</field>
             <field name="model">x_aioa.settings</field>
             <field name="arch" type="xml">
-                <tree string="All in One Accessibility Settings">
+                <tree string="All in One Accessibility Settings" create="false" delete="false">
                     <field name="x_color_code"/>
                     <field name="x_style"/>
                     <field name="x_icon_type"/>
@@ -31,22 +34,38 @@
             <field name="name">x_aioa.settings.form</field>
             <field name="model">x_aioa.settings</field>
             <field name="arch" type="xml">
-                <form string="All in One Accessibility">
+                <form string="All in One Accessibility" create="false" delete="false">
                     <header>
-                        <button name="odoo-allinoneaccessibility.action_aioa_save_and_sync"
+                        <!-- Local ir.config_parameter save (read by the frontend
+                             <script> tag) runs via the ir.actions.server below;
+                             the actual remote sync to Skynet runs in JS — see
+                             static/src/js/aioa_save_sync_patch.js. No license
+                             key involved anywhere: your domain is registered
+                             automatically the first time this form opens (see
+                             the aioa_register_domain widget just below), keyed
+                             off this site's own URL. -->
+                        <button name="odoo_allinoneaccessibility.action_aioa_save_and_sync"
                                 type="action"
                                 string="Save and Sync Widget"
                                 class="btn-primary"
                                 save="1"/>
                     </header>
                     <sheet>
-                        <group string="License &amp; Branding">
+
+                        <!-- Fires add-user-domain once per browser session when
+                             this form opens. No license key/token needed —
+                             Skynet identifies the site by domain. Backend-only,
+                             does not touch the frontend. -->
+                        <widget name="aioa_register_domain"/>
+
+                        <group string="All in One Accessibility Settings Page">
                             <group>
-                                <field name="x_color_code" placeholder="420083"/>
+                                <field name="x_color_code"
+                                       placeholder="420083"/>
                             </group>
                             <group>
                                 <div class="text-muted">
-                                    Enter hex color without the # symbol.
+                                    Enter hex color without the # symbol.<br/>
                                     Example: FF5733
                                 </div>
                             </group>
@@ -85,12 +104,27 @@
             </field>
         </record>
 
-        <!-- ══ Window Action ══ -->
+        <!-- ══ Window Action ══
+             Always opens the one default settings record directly (no list view,
+             no "New" button). Without res_id + view_mode="form" here, opening the
+             action could land on the list view first — clicking "New" there created
+             a blank, unrelated settings record and made the real configured record
+             disappear from view. Pointing straight at aioa_settings_default and
+             disabling create/delete makes this behave like a proper singleton
+             settings page. ══ -->
         <record id="action_aioa_settings_window" model="ir.actions.act_window">
             <field name="name">All in One Accessibility</field>
             <field name="res_model">x_aioa.settings</field>
-            <field name="view_mode">form,list</field>
+            <field name="view_mode">form</field>
+            <field name="res_id" ref="aioa_settings_default"/>
             <field name="target">current</field>
+            <field name="context">{'create': False, 'delete': False}</field>
+        </record>
+        <record id="action_aioa_settings_window_view_form" model="ir.actions.act_window.view">
+            <field name="sequence">1</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_aioa_settings_form"/>
+            <field name="act_window_id" ref="action_aioa_settings_window"/>
         </record>
 
         <!-- ══ Inject into Odoo General Settings page ══ -->
@@ -99,7 +133,7 @@
             <field name="model">res.config.settings</field>
             <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[@id='companies']" position="after">
+                <xpath expr="//form" position="inside">
                     <div id="aioa_settings_section" class="o_setting_box col-xs-12 col-md-6">
                         <div class="o_setting_left_pane"/>
                         <div class="o_setting_right_pane">
@@ -107,10 +141,10 @@
                                 <strong>All in One Accessibility</strong>
                             </div>
                             <div class="text-muted mt4 mb8">
-                                Configure your accessibility widget — position, icon, color and license key.
+                                Website accessibility widget for improving WCAG 2.0, 2.1, 2.2 and ADA, EAA compliance.
                             </div>
                             <a type="action"
-                               name="odoo-allinoneaccessibility.action_aioa_settings_window"
+                               name="odoo_allinoneaccessibility.action_aioa_settings_window"
                                class="btn btn-secondary btn-sm"
                                role="button">
                                 Configure Widget &#8594;

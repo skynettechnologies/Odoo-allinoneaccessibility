@@ -1,4 +1,4 @@
-# **All in One Accessibility® - Odoo Accessibility Module**
+# All in One Accessibility® 
 
 ## **Free WCAG, ADA, EAA accessibility module for Odoo websites!**
 
@@ -33,16 +33,16 @@ Explore the [free accessibility widget features guide](https://www.skynettechnol
 
 ### **Version Compatibility**
 
-| Requirement    | Supported Versions                              |
-|----------------|-------------------------------------------------|
-| Odoo           | 17.0, 18.0, 19.0 (Community & Enterprise)       |
-| Python         | 3.10, 3.11, 3.12, 3.13                          |
-| Module Version | 1.2                                             |
+| Requirement    | Supported Versions                     |
+|----------------|----------------------------------------|
+| Odoo           | 20.0 (Community & Enterprise)          |
+| Python         | 3.12 or newer (Odoo 20 requirement)    |
+| Module Version | 1.9.1                                  |
 
 > **Note:** This module depends on Odoo's `base`, `base_setup`, `web`, `website`, and
 > `base_automation` apps. The `website` app must be installed for the widget to render
-> on your public-facing pages.
-
+> on your public-facing pages. Missing dependencies are installed automatically when you
+> install the module.
 
 ### **SECURITY & PRIVACY NOTES**
 
@@ -84,96 +84,43 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 
 ## **Installation Steps**
 
-### Step 1 — Download or clone the module
+**Before you start:** you need Odoo 20.0, an administrator login, and the file `odoo_allinoneaccessibility_v20.zip`. Choose **one** of the three options below (do not mix them on the same database).
 
-Download the module zip, or clone it, and extract it into your Odoo instance's custom
-addons directory, so you end up with a folder structured like:
+### **Option 1 — Extract into your addons folder**
 
-```
-<your-addons-path>/odoo_allinoneaccessibility/
-    __init__.py
-    __manifest__.py
-    actions/
-    models/
-    security/
-    static/
-    templates/
-    views/
-```
+1. Find your addons folder: open `odoo.conf` and look at the `addons_path` line.
+2. Extract the zip into that folder so this file exists: `<addons_path>/odoo_allinoneaccessibility/__manifest__.py`
+3. Restart the Odoo server (or the Odoo Windows service).
+4. Turn on Developer Mode: **Settings → General Settings → Developer Tools → Activate the developer mode**.
+5. Go to **Apps**, click **Update Apps List**, then confirm.
+6. Remove the **Apps** filter, search for **All in One Accessibility**, and click **Activate** (or **Install**).
 
----
+> The folder must sit **directly** inside the addons path. If `__manifest__.py` is one level deeper, move the inner folder up.
 
-### Step 2 — Confirm your addons path
+### **Option 2 — Import the zip from the Apps screen (no server access needed)**
 
-Make sure `<your-addons-path>` is listed in your Odoo config file (`odoo.conf`) under
-`addons_path`, or was passed via `--addons-path` when starting the server. If it's a
-new custom addons folder, add it there before continuing.
+1. Turn on Developer Mode: **Settings → General Settings → Developer Tools → Activate the developer mode**.
+2. Go to **Apps → Import Module**.
+3. Click **Module file (.zip)** and choose `odoo_allinoneaccessibility_v20.zip`.
+4. Click **Install**.
+5. Wait for the "installed" message, then click **Close**.
 
----
+> Import Module requires an administrator user. Upload the original zip as it is; do not re-zip it.
 
-### Step 3 — Restart the Odoo server
 
-```bash
-# Linux / systemd
-sudo systemctl restart odoo
+### **Configure the widget**
 
-# Or, running from source
-./odoo-bin -c /etc/odoo/odoo.conf
-```
+1. Open the **All in One Accessibility** app from the main menu, or go to **Settings → General Settings → All in One Accessibility → Configure Widget →**.
+2. Set the widget color, position, icon type, and size.
+3. Click **Save and Sync Widget**.
+4. Open your website homepage; the floating accessibility icon appears in the corner you chose (default: bottom-right).
 
----
+Settings are synced to Skynet's platform automatically. The widget picks them up on the next page load, with no server restart required.
 
-### Step 4 — Update the Apps list
+### **Uninstall**
 
-In Odoo, go to **Apps**, click the **⋮** menu (or enable Developer Mode first via
-**Settings → General Settings → Developer Tools**), then click **Update Apps List**.
-This lets Odoo discover the newly added module.
+Go to **Apps**, find **All in One Accessibility**, open the **⋮** menu, and click **Uninstall**.
 
----
-
-### Step 5 — Install the module
-
-Search for **"All in One Accessibility"** in the Apps list and click **Activate**
-(or **Install**). Odoo will install the module, its data records, and its
-website template.
-
----
-
-### Step 6 — Configure in Odoo Settings
-
-Go to **Settings → General Settings**, scroll to the **All in One Accessibility**
-section, and click **Configure Widget →**.
-
-Configure widget color, position, icon type, and size, then click
-**Save and Sync Widget**.
-Settings are automatically synced to Skynet's platform — the widget picks them up
-on the next page load, no server restart required.
-
----
-
-### Step 7 — Verify on the frontend
-
-Open your website's homepage. The floating accessibility widget should appear in the
-corner you configured (default: bottom-right).
-
----
-
-### **Settings Reference**
-
-| Setting | Default | Description |
-| --- | --- | --- |
-| Hex Color Code | `420083` | Widget button color (no `#`) |
-| Enable Precise Widget Icon Position | Off | Set exact px offset from edge instead of a coarse corner |
-| Position of Accessibility Icon | `Bottom Right` | Coarse position: Top/Middle/Bottom × Left/Center/Right |
-| Right Offset (PX) + Direction | `20px`, To the left | Used only when Precise Positioning is enabled |
-| Bottom Offset (PX) + Direction | `20px`, To the bottom | Used only when Precise Positioning is enabled |
-| Widget Size | `Regular Size` | Regular or Oversize button |
-| Icon Type | Icon Type-1 | One of 10 icon styles |
-| Enable Custom Icon Size | Off | Override icon size with exact px value |
-| Icon Size (Desktop) | Default Icon | Big / Medium / Default / Small / Extra Small |
-| Exact Icon Size (PX) | `50` | Used only when Custom Icon Size is enabled |
-
----
 
 ### **CORS Policy Configuration**
 

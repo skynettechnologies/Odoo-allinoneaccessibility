@@ -9,37 +9,37 @@
       <t t-set="ICP" t-value="request.env['ir.config_parameter'].sudo()"/>
 
       <t t-set="no_required_eu"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.no_required_eu', '1')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.no_required_eu', '1')"/>
       <t t-set="api_called"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.api_called', 'False')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.api_called', 'False')"/>
       <t t-set="aioa_color"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.color_code', '420083').lstrip('#')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.color_code', '420083').lstrip('#')"/>
       <t t-set="aioa_token"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.token', '')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.token', '')"/>
       <t t-set="aioa_precise"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.precise_position', 'False')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.precise_position', 'False')"/>
       <t t-set="aioa_style"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.style', 'bottom_right')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.style', 'bottom_right')"/>
       <t t-set="aioa_icon_type"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.icon_type', 'aioa-icon-type-1')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.icon_type', 'aioa-icon-type-1')"/>
       <t t-set="aioa_size"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.size', 'regular')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.size', 'regular')"/>
       <t t-set="aioa_icon_desk"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.icon_size_desktop', 'aioa-default-icon')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.icon_size_desktop', 'aioa-default-icon')"/>
       <t t-set="aioa_custom_size"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.custom_icon_size', 'False')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.custom_icon_size', 'False')"/>
       <t t-set="aioa_custom_size_px"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.custom_icon_size_px', '50')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.custom_icon_size_px', '50')"/>
       <t t-set="aioa_offset_right"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.offset_right', '20')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.offset_right', '20')"/>
       <t t-set="aioa_offset_right_dir"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.offset_right_dir', 'to_the_left')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.offset_right_dir', 'to_the_left')"/>
       <t t-set="aioa_offset_bottom"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.offset_bottom', '20')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.offset_bottom', '20')"/>
       <t t-set="aioa_offset_bottom_dir"
-         t-value="ICP.get_param('odoo_allinoneaccessibility.offset_bottom_dir', 'to_the_bottom')"/>
+         t-value="ICP.get_str('odoo_allinoneaccessibility.offset_bottom_dir', 'to_the_bottom')"/>
       <t t-set="aioa_base_url"
-         t-value="ICP.get_param('web.base.url', '')"/>
+         t-value="ICP.get_str('web.base.url', '')"/>
 
       <!--
         Icon size: the widget JS accepts either a named CSS-class size

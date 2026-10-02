@@ -1,9 +1,15 @@
 /** @odoo-module **/
 
 import { registry } from "@web/core/registry";
-import { Component, onWillStart, xml } from "@odoo/owl";
+import { Component, onMounted, onWillStart, t, useProps, xml } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 import { getAioaCanonicalDomain } from "./aioa_domain_util";
+import {
+    AIOA_LOCAL_HOSTS,
+    buildRecordChanges,
+    fetchAioaWidgetSettings,
+    wasAioaSyncedRecently,
+} from "./aioa_dashboard_sync";
 
 // Fires when the AIOA Settings form is opened in the backend. Does NOT run
 // on frontend/website pages.
@@ -32,16 +38,69 @@ const MAX_REGISTER_ATTEMPTS = 3;
 
 export class AioaRegisterDomain extends Component {
     static template = xml`<div class="d-none"/>`;
-    // Registered as a `view_widgets` widget, so the form renderer injects
-    // standard widget props (record, readonly, name, id, ...) that this
-    // component never reads. "*" tells Owl to accept any props without
-    // validating individual keys, instead of failing on ones not declared
-    // here.
-    static props = ["*"];
+    // Registered as a `view_widgets` widget: the widget wrapper only passes
+    // `record` and `readonly`. Owl 3 ignores `static props`, so the props
+    // schema is declared with useProps() instead.
+    props = useProps({
+        record: t.object().optional(),
+        readonly: t.boolean().optional(),
+    });
 
     setup() {
         this.orm = useService("orm");
         onWillStart(() => this.registerDomain());
+        // After mount, not onWillStart: reading the dashboard is another
+        // network round-trip and the form shouldn't wait on it. It runs
+        // after registerDomain() has finished (that is awaited above), so
+        // a brand-new domain is already registered when it is looked up.
+        onMounted(() => this.loadDashboardSettings());
+    }
+
+    // Pulls this site's current configuration from Skynet's widget-settings
+    // endpoint and writes it into the form, so changes made directly on the
+    // Skynet/ADA dashboard show up on this settings page. Port of the Plone
+    // module's fetchWidgetSettings()/applyDashboardSettings().
+    //
+    // The values are applied to the form record only (it becomes "modified");
+    // nothing reaches the website until "Save and Sync Widget" is clicked,
+    // because the frontend <script> tag reads ir.config_parameter, which
+    // only that button's server action updates.
+    async loadDashboardSettings() {
+        const record = this.props.record;
+        if (!record) {
+            return;
+        }
+        // Skynet has no registration for dev hosts; a read would come back
+        // empty/unrelated and clobber the saved values.
+        if (AIOA_LOCAL_HOSTS.includes(window.location.hostname)) {
+            return;
+        }
+        // Skynet may still be serving pre-save values right after a sync.
+        if (wasAioaSyncedRecently()) {
+            return;
+        }
+
+        const data = await fetchAioaWidgetSettings();
+        if (!data) {
+            return;
+        }
+        // The admin may have started typing while the request was in
+        // flight — never overwrite unsaved edits.
+        if (record.dirty) {
+            return;
+        }
+
+        const changes = buildRecordChanges(data, record.data);
+        if (Object.keys(changes).length === 0) {
+            return;
+        }
+        try {
+            // Applied silently — no popup. The form simply shows the
+            // latest dashboard values.
+            await record.update(changes);
+        } catch (err) {
+            console.warn("AIOA: could not apply dashboard settings", err);
+        }
     }
 
     // Best-effort: the free-widget tier has no documented response schema
@@ -65,7 +124,7 @@ export class AioaRegisterDomain extends Component {
             body?.license_key ?? body?.result?.token;
         if (typeof candidate === "string" && candidate.length > 0) {
             try {
-                await this.orm.call("ir.config_parameter", "set_param", [
+                await this.orm.call("ir.config_parameter", "set_str", [
                     "odoo_allinoneaccessibility.token",
                     candidate,
                 ]);

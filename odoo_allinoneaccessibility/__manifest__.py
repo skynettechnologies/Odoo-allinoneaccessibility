@@ -2,7 +2,7 @@
 {
     'name': 'All in One Accessibility',
     'category': 'Website',
-    'version': '1.4',
+    'version': '1.0.0',
     'license': 'OPL-1',
     'summary': 'Website accessibility widget for improving WCAG 2.0, 2.1, 2.2 and ADA, EAA compliance',
     'description': '',
@@ -11,14 +11,17 @@
     'depends': ['base', 'base_setup', 'web', 'website', 'base_automation'],
     'data': [
         'models/aioa_model.xml',
-        'security/ir.model.access.csv',
+        'security/ir.access.csv',
         'actions/aioa_actions.xml',
         'views/aioa_views.xml',
         'templates/base_url_passing.xml',
+        'data/aioa_apps_visibility.xml',
     ],
     'assets': {
         'web.assets_backend': [
+            'odoo_allinoneaccessibility/static/src/js/aioa_clipboard_polyfill.js',
             'odoo_allinoneaccessibility/static/src/js/aioa_domain_util.js',
+            'odoo_allinoneaccessibility/static/src/js/aioa_dashboard_sync.js',
             'odoo_allinoneaccessibility/static/src/js/aioa_register_domain.js',
             'odoo_allinoneaccessibility/static/src/js/aioa_save_sync_patch.js',
         ],

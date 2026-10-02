@@ -18,32 +18,56 @@
             <field name="model_id" ref="odoo_allinoneaccessibility.model_aioa_settings"/>
             <field name="state">code</field>
             <field name="code"><![CDATA[
+# NOTE: validation first, nothing is written until every check passes.
+# No `or <default>` fallbacks inside the checks: a blank value must fail
+# validation instead of being replaced by a default that happens to pass.
+# (The ORM reads a NULL integer as 0, so range checks see 0 for blanks —
+# 0 is rejected where the allowed range excludes it, e.g. icon size 20-150.)
 for rec in records:
-    if rec.x_precise_position:
-        if not (0 <= (rec.x_offset_right or 0) <= 250):
-            raise UserError('Right offset (PX) must be between 0 and 250.')
-        if not (0 <= (rec.x_offset_bottom or 0) <= 250):
-            raise UserError('Bottom offset (PX) must be between 0 and 250.')
-    if rec.x_custom_icon_size:
-        if not (20 <= (rec.x_custom_icon_size_px or 50) <= 150):
-            raise UserError('Custom icon size must be between 20 and 150 pixels.')
+    if not (rec.x_color_code or '').strip().lstrip('#').strip():
+        raise UserError('Hex Color Code is required.')
 
+    if rec.x_precise_position:
+        if not (0 <= rec.x_offset_right <= 250):
+            raise UserError('Right offset (PX) must be between 0 and 250.')
+        if not rec.x_offset_right_dir:
+            raise UserError('Right Offset Direction is required.')
+        if not (0 <= rec.x_offset_bottom <= 250):
+            raise UserError('Bottom offset (PX) must be between 0 and 250.')
+        if not rec.x_offset_bottom_dir:
+            raise UserError('Bottom Offset Direction is required.')
+    elif not rec.x_style:
+        raise UserError('Position of Accessibility Icon is required.')
+
+    if not rec.x_size:
+        raise UserError('Widget Size is required.')
+    if not rec.x_icon_type:
+        raise UserError('Icon Type is required.')
+    if rec.x_custom_icon_size:
+        if not (20 <= rec.x_custom_icon_size_px <= 150):
+            raise UserError('Custom icon size must be between 20 and 150 pixels.')
+    elif not rec.x_icon_size_desktop:
+        raise UserError('Icon Size (Desktop) is required.')
+
+for rec in records:
     ICP = env['ir.config_parameter'].sudo()
 
-    ICP.set_param('odoo_allinoneaccessibility.color_code',        (rec.x_color_code or '420083').lstrip('#'))
-    ICP.set_param('odoo_allinoneaccessibility.style',             rec.x_style or 'bottom_right')
-    ICP.set_param('odoo_allinoneaccessibility.precise_position',  str(bool(rec.x_precise_position)))
-    ICP.set_param('odoo_allinoneaccessibility.icon_type',         rec.x_icon_type or 'aioa-icon-type-1')
-    ICP.set_param('odoo_allinoneaccessibility.size',              rec.x_size or 'regular')
-    ICP.set_param('odoo_allinoneaccessibility.icon_size_desktop', rec.x_icon_size_desktop or 'aioa-default-icon')
-    ICP.set_param('odoo_allinoneaccessibility.custom_icon_size',   str(bool(rec.x_custom_icon_size)))
-    ICP.set_param('odoo_allinoneaccessibility.custom_icon_size_px',str(rec.x_custom_icon_size_px or 50))
-    ICP.set_param('odoo_allinoneaccessibility.offset_right',       str(rec.x_offset_right or 20))
-    ICP.set_param('odoo_allinoneaccessibility.offset_right_dir',   rec.x_offset_right_dir or 'to_the_left')
-    ICP.set_param('odoo_allinoneaccessibility.offset_bottom',      str(rec.x_offset_bottom or 20))
-    ICP.set_param('odoo_allinoneaccessibility.offset_bottom_dir',  rec.x_offset_bottom_dir or 'to_the_bottom')
+    ICP.set_str('odoo_allinoneaccessibility.color_code',        rec.x_color_code.strip().lstrip('#'))
+    ICP.set_str('odoo_allinoneaccessibility.style',             rec.x_style or 'bottom_right')
+    ICP.set_str('odoo_allinoneaccessibility.precise_position',  str(bool(rec.x_precise_position)))
+    ICP.set_str('odoo_allinoneaccessibility.icon_type',         rec.x_icon_type)
+    ICP.set_str('odoo_allinoneaccessibility.size',              rec.x_size)
+    ICP.set_str('odoo_allinoneaccessibility.icon_size_desktop', rec.x_icon_size_desktop or 'aioa-default-icon')
+    ICP.set_str('odoo_allinoneaccessibility.custom_icon_size',   str(bool(rec.x_custom_icon_size)))
+    ICP.set_str('odoo_allinoneaccessibility.custom_icon_size_px',str(rec.x_custom_icon_size_px if rec.x_custom_icon_size else 50))
+    # 0 is a legal offset — don't let `or 20` turn it into 20 locally
+    # while the JS sync sends 0 to ADA.
+    ICP.set_str('odoo_allinoneaccessibility.offset_right',       str(rec.x_offset_right if rec.x_precise_position else 20))
+    ICP.set_str('odoo_allinoneaccessibility.offset_right_dir',   rec.x_offset_right_dir or 'to_the_left')
+    ICP.set_str('odoo_allinoneaccessibility.offset_bottom',      str(rec.x_offset_bottom if rec.x_precise_position else 20))
+    ICP.set_str('odoo_allinoneaccessibility.offset_bottom_dir',  rec.x_offset_bottom_dir or 'to_the_bottom')
     # Always last — signals frontend that all values are ready
-    ICP.set_param('odoo_allinoneaccessibility.settings_updated',  'True')
+    ICP.set_str('odoo_allinoneaccessibility.settings_updated',  'True')
             ]]></field>
         </record>
 

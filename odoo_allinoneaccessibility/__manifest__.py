@@ -2,7 +2,7 @@
 {
     'name': 'All in One Accessibility',
     'category': 'Website',
-    'version': '1.0.0',
+    'version': '1.1.0',
     'license': 'OPL-1',
     'summary': 'Website accessibility widget for improving WCAG 2.0, 2.1, 2.2 and ADA, EAA compliance',
     'description': '',
@@ -15,7 +15,6 @@
         'actions/aioa_actions.xml',
         'views/aioa_views.xml',
         'templates/base_url_passing.xml',
-        'data/aioa_apps_visibility.xml',
     ],
     'assets': {
         'web.assets_backend': [

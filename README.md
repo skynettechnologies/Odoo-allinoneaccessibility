@@ -1,127 +1,302 @@
-Odoo - All In One Accessibility!
+# All in One Accessibility® – Free ADA Accessibility Widget for Odoo
 
-An [Odoo free accessibility app](https://www.skynettechnologies.com/odoo-accessibility-app) provides an effective way for businesses to improve the accessibility of Odoo powered stores and websites. It is designed for organizations that want to offer a more inclusive digital experience, it adds an accessibility widget that supports users with diverse needs through features aligned WCAG 2.1, 2.2, ADA, EAA, Section 508, France RGAA, California Unruh, European EAA EN 301 549, UK Equality Act, Spain UNE 139803:2012, Australian DDA, Israeli Standard 5568, Ontario AODA, Canada ACA, German BITV, Brazilian Inclusion Law (LBI 13.146/2015), JIS X 8341 (Japan), Italian Stanca Act, Indian RPwD Act, Switzerland DDA and other [accessibility standards](https://www.skynettechnologies.com/accessibility-standards) .
+This [free Odoo accessibility module](https://www.skynettechnologies.com/odoo-accessibility-app) makes your website more usable for people with visual, auditory, motor, or cognitive disabilities. It supports assistive technologies and helps align with WCAG 2.1, 2.2, ADA, EAA, Section 508, France RGAA, California Unruh, European EAA EN 301 549, UK Equality Act, Spain UNE 139803:2012, Australian DDA, Israeli Standard 5568, UAE Disability Act (Federal Law No. 29 of 2006), Saudi Web Accessibility Standards, Qatar National e-Accessibility Policy, Ontario AODA, Canada ACA, German BITV, Brazilian Inclusion Law (LBI 13.146/2015), JIS X 8341 (Japan), Italian Stanca Act, Indian RPwD Act, Switzerland DDA, and other [accessibility standards](https://www.skynettechnologies.com/accessibility-standards).
 
-With this [free accessibility widget](https://www.skynettechnologies.com/free-website-accessibility-widget) , improve usability for visitors with visual, motor, cognitive, and other accessibility. Odoo accessibility widget is great suitable for business websites (Corporate sites), ecommerce stores, B2B portals, booking & appointment websites, educational & training platforms, event & conference websites, community and membership sites, marketing microsites, restaurants and food delivery websites, and more. It demonstrates a commitment to inclusivity and enhance brand reputation.
+This lightweight [free ADA accessibility widget](https://www.skynettechnologies.com/free-website-accessibility-widget) quickly adds essential accessibility features that support inclusive browsing and compliance efforts.
 
-This free accessibility Odoo plugin follows several data and application security practices, including ISO 9001:2015 & ISO 27001:2022, GDPR, CCPA, COPPA, HIPAA, and SOC 2 Type II. Skynet Technologies USA LLC is a proud member of W3C and the International Association of Accessibility Professionals (IAAP).
+## Highlights
 
-**Features:**
+- **Free forever:** Essential accessibility features at no cost.
+- **Quick setup:** Installs in minutes with a lightweight script.
+- **Multilingual:** 190+ languages with automatic language detection.
+- **Customizable:** Match the widget's colors, size, icon, and position to your site's mobile and desktop designs.
+- **Free support:** Our support team helps with installation and any queries.
+- **Easy upgrade:** Upgrade to advanced accessibility anytime and get 100+ features, including screen reader, talk & type, and voice navigation. Try them with a [10-day free trial](https://ada.skynettechnologies.us/trial-subscription).
 
-*   Auto-detect language
-*   Supports 140+ multi-languages.
-*   Skip to Navigation / Content / Footer
-*   Content adjustment options
-*   Visual and Color Adjustments
-*   Customization available including colors, size, icon, and position.
-*   Reading mask
-*   Accessibility statement
+## What You Get with the Free Widget
 
-Explore the [free accessibility widget features guide](https://www.skynettechnologies.com/sites/default/files/Free-Accessibility-Widget-Features-Guide.pdf) .
+- Auto-detect language
+- 190+ languages
+- Skip to Navigation / Content / Footer
+- Content adjustment options
+- Visual & color adjustments
+- Reading mask
+- Widget customization (colors, size, icon, and position)
+- Accessibility statement
 
-**Installation:**
+Explore the [**free accessibility widget features guide**](https://www.skynettechnologies.com/sites/default/files/Free-Accessibility-Widget-Features-Guide.pdf).
 
-Check out [**Odoo WCAG EAA accessibility widget integration steps**](https://www.skynettechnologies.com/blog/odoo-web-accessibility-widget-installation) **.**
+## Who Is the Free Widget For?
 
-**Why one should use the Odoo accessibility app - All in One Accessibility?**
+Businesses, developers, agencies, content teams, ecommerce brands, educational institutions, and public-facing organizations using Odoo who want to improve WCAG accessibility, usability, and user experience quickly without complex development.
 
-*   It is a valuable tool for any businesses running website on Odoo because it helps to make web content usable for people with disabilities while supporting all the standards.
-*   As digital accessibility become a legal and ethical requirement globally, it provides an easy, cost-effective solution to upgrade your website without complex coding or redesign.
-*   It helps organizations align with global accessibility guidelines - such as those established by W3C.
-*   It is fast to install, supports 140+ languages, and instantly improves inclusivity for visitors with visual, motor, cognitive, or auditory disabilities.
-*   For businesses that want to reduce legal risk, improve user experience, and demonstrate commitment to equal access, using All in One Accessibility on an Odoo website is a smart and responsible choice.
+## Why Choose This Free Widget?
 
-**Visit the Odoo accessibility improvements demo to see how does it perform with improved accessibility features:**
+- Aligns with global accessibility standards.
+- Improves usability for people with visual, cognitive, and motor impairments.
+- Integrates smoothly with most Odoo website themes and templates.
+- Supports multisite setups for global reach.
+- Free support from our team for installation and queries.
+- Core features at no cost.
 
-[![All in One Accessibility Website Widget](https://img.youtube.com/vi/X70XtvGyvSs/0.jpg)](https://www.youtube.com/watch?v=X70XtvGyvSs)
+## Free vs Pro
 
-**CORS Policy Configuration**
+See the full [free widget vs paid app comparison](https://www.skynettechnologies.com/installation-guide/free-vs-paid-accessibility-widget-comparison-video).
 
-To avoid CORS policy issues, ensure the following URLs are allowed in your website. These URLs should be added to your CORS configuration or trusted domains list.
+## Security and Privacy
 
-To avoid CORS policy issues, ensure the following URLs are allowed in your website. These URLs should be added to your CORS configuration or trusted domains list.
+- This free accessibility module follows several data and application security practices, including ISO 9001:2015 & ISO 27001:2022, GDPR, CCPA, COPPA, HIPAA, and SOC 2 Type II.
+- Skynet Technologies USA LLC is an organizational member of IAAP and W3C.
+- No personal data is intentionally stored by the module itself.
+- Site owners are responsible for reviewing their own compliance requirements.
 
-| **Domain**                         | **Description**                              | **Usage**                        |
-|------------------------------------|----------------------------------------------|----------------------------------|
-| `https://*.skynettechnologies.com` | Skynet Technologies (Global Domain)          | API access and resources         |
-| `https://*.skynettechnologies.us`  | Skynet Technologies (US Domain)              | API access and resources         |
-| `https://*.googleapis.com`         | Google APIs                                  | Services like Fonts, Translation |
-| `https://*.gstatic.com`            | Fonts APIs                                   | Custom Fonts                     |
-| `https://vlibras.gov.br`           | VLibras - Brazilian Sign Language Service    | Sign Language                    |
+## Limitations
 
+- Some advanced features require a commercial subscription and Paid Add-ons.
+- The module improves accessibility and usability but is not a full replacement for manual WCAG remediation.
+
+For more details, visit [**Odoo accessibility module**](https://www.skynettechnologies.com/odoo-accessibility-app).
+
+## FAQs
+
+**Does this free accessibility module support multilingual Odoo sites?**
+
+Yes. It supports 190+ languages.
+
+**Is this module compatible with Odoo multi-website?**
+
+Yes.
+
+**Which Odoo versions are supported?**
+
+Odoo 16.0, 17.0, 18.0, 19.0, and 20.0 (Community and Enterprise). Use the module build that matches your Odoo version.
+
+**Which languages do the screen reader, virtual keyboard, and other advanced features support?**
+
+In the paid app, Screen Reader, Talk & Type, and Live Site Translation support 50+ languages; the Virtual Keyboard supports 40+ languages; Voice Navigation and Dictionary Search support 15+ languages. [See language support details](https://www.skynettechnologies.com/all-in-one-accessibility/languages).
+
+**How can I upgrade from the free widget to the paid app?**
+
+Upgrade to a paid subscription with 100+ advanced features. Check out the [upgrade steps](https://www.skynettechnologies.com/blog/upgrade-from-all-in-one-accessibility-free-widget-to-premium-version).
+
+**What additional features are available in the paid version?**
+
+The paid app includes a screen reader, voice navigation, talk & type, virtual keyboard, dictionary search, 12 accessibility profiles tailored for different disability groups, Libras (Brazilian Sign Language), automated compliance accessibility reports, AI-based remediation guidelines, and more. Explore the [paid accessibility app](https://www.skynettechnologies.com/all-in-one-accessibility) and buy now.
+
+**Can I try Pro before buying?**
+
+Yes. Pro comes with a [10-day free trial](https://ada.skynettechnologies.us/trial-subscription) that includes all features.
+
+**Which themes are supported?**
+
+Odoo's standard website themes and most custom themes, and many more.
+
+## Supported Languages (190+)
+
+English (USA), English (UK), English (Australian), English (Canadian), English (South Africa), Español, Español (Mexicano), Deutsch, عربى, Português, Português (Brazil), 日本語, Français, Italiano, Polski, Pусский, 中文, 中文 (Traditional), עִברִית, Magyar, Slovenčina, Suomenkieli, Türkçe, Ελληνικά, Latinus, Български, Català, Čeština, Dansk, Nederlands, हिंदी, Bahasa Indonesia, 한국인, Lietuvių, Bahasa Melayu, Norsk, Română, Slovenščina, Svenska, แบบไทย, Українська, Việt Nam, বাঙালি, සිංහල, አማርኛ, Hmoob, မြန်မာ, Eesti keel, latviešu, Cрпски, Hrvatski, ქართული, ʻŌlelo Hawaiʻi, Cymraeg, Cebuano, Samoa, Kreyòl ayisyen, Føroyskt, Crnogorski, Azerbaijani, Euskara, Tagalog, Galego, Norsk Bokmål, فارسی, ਪੰਜਾਬੀ, shqiptare, Hայերեն, অসমীয়া, Aymara, Bamanankan, беларускі, bosanski, Corsu, ދިވެހި, Esperanto, Eʋegbe, Frisian, guarani, ગુજરાતી, Hausa, íslenskur, Igbo, Gaeilge, basa jawa, ಕನ್ನಡ, қазақ, ខ្មែរ, Kinyarwanda, Kurdî, Кыргызча, ພາສາລາວ, Lingala, Luganda, lëtzebuergesch, македонски, Malagasy, മലയാളം, Malti, Maori, मराठी, Монгол, नेपाली, Sea, ଓଡିଆ, Afaan Oromoo, پښتو, Runasimi, संस्कृत, Gàidhlig na h-Alba, Sesotho, Shona, سنڌي, Soomaali, basa Sunda, kiswahili, тоҷикӣ, தமிழ், Татар, తెలుగు, ትግሪኛ, Tsonga, Türkmenler, Ride, اردو, ئۇيغۇر, o'zbek, isiXhosa, יידיש, Yoruba, Zulu, भोजपुरी, डोगरी, कोंकणी, Kurdî, Krio, मैथिली, Meiteilon, Mizo tawng, Sepedi, Ilocano, دری
+
+## Prerequisites
+
+| Requirement | Supported |
+| --- | --- |
+| Odoo | 16.0, 17.0, 18.0, 19.0, 20.0 (Community & Enterprise) |
+| Python | The version required by your Odoo release |
+| Required Odoo apps | `base`, `base_setup`, `web`, `website`, `base_automation` |
+
+- The **Website** app must be installed for the widget to render on your public-facing pages.
+- Access to your Odoo server's custom addons directory and `odoo.conf`.
+- Tested and verified on Odoo 16.0, 17.0, 18.0, 19.0, and 20.0.
+
+## Installation
+
+### Step 1 — Download and extract the module
+
+Download the module zip and extract it into your Odoo instance's custom addons directory so that you end up with:
+
+```
+<your-addons-path>/odoo_allinoneaccessibility/
+    __init__.py
+    __manifest__.py
+    actions/
+    models/
+    security/
+    static/
+    templates/
+    views/
+```
+
+> Make sure the folder is named exactly `odoo_allinoneaccessibility` and that `__manifest__.py` sits directly inside it (not in a nested folder).
+
+### Step 2 — Confirm your addons path
+
+Make sure `<your-addons-path>` is listed under `addons_path` in your Odoo config file (`odoo.conf`), or passed via `--addons-path` when starting the server. If it is a new custom addons folder, add it before continuing.
+
+### Step 3 — Restart the Odoo server
+
+```bash
+# Linux / systemd
+sudo systemctl restart odoo
+
+# Or, running from source
+./odoo-bin -c /etc/odoo/odoo.conf
+```
+
+### Step 4 — Update the Apps list
+
+1. Log in to Odoo as an administrator.
+2. Activate **Developer Mode** (**Settings → Activate the developer mode**).
+3. Go to **Apps** and click **Update Apps List**, then confirm.
+
+### Step 5 — Install the module
+
+Remove the default **Apps** filter in the search bar, search for **All in One Accessibility**, and click **Activate** (or **Install**). Odoo installs the module, its data records, and its website template.
+
+### Step 6 — Configure the widget
+
+Go to **Settings → General Settings**, scroll to the **All in One Accessibility** section, and click **Configure Widget →**. Set the widget color, position, icon type, and size, then click **Save and Sync Widget**. Settings are synced to Skynet's platform automatically and the widget picks them up on the next page load; no server restart is required.
+
+### Step 7 — Verify on the frontend
+
+Open your website's homepage. The floating accessibility widget should appear in the corner you configured (default: bottom right).
+
+Package name: `odoo_allinoneaccessibility`
+
+Check out our [**Odoo WCAG accessibility widget installation steps**](https://www.skynettechnologies.com/blog/odoo-web-accessibility-widget-installation).
+
+## Configuration
+
+Configure the widget from the Odoo admin panel.
+
+**Path:** Settings → General Settings → All in One Accessibility → Configure Widget
+
+**Steps:**
+
+1. Log in to the Odoo admin panel.
+2. Navigate to Settings → General Settings → All in One Accessibility → Configure Widget.
+3. Configure options (color, icon type, position, size).
+4. Click **Save and Sync Widget**.
+
+### Settings Reference
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| Hex Color Code | `420083` | Widget button color (enter without `#`) |
+| Enable Precise Widget Icon Position | Off | Set an exact pixel offset from the edge instead of a corner |
+| Position of Accessibility Icon | Bottom Right | Top / Middle / Bottom × Left / Center / Right |
+| Right Offset (PX) + Direction | 20px, To the left | Used only when precise positioning is enabled (0–250) |
+| Bottom Offset (PX) + Direction | 20px, To the bottom | Used only when precise positioning is enabled (0–250) |
+| Widget Size | Regular | Regular or Oversize button |
+| Icon Type | Icon Type-1 | One of 10 icon styles |
+| Enable Custom Icon Size | Off | Override icon size with an exact pixel value |
+| Icon Size (Desktop) | Default Icon | Big / Medium / Default / Small / Extra Small |
+| Exact Icon Size (PX) | 50 | Used only when custom icon size is enabled (20–150) |
+
+## Demo
+
+See how the widget performs with improved accessibility features:
+
+[![Free accessibility widget demo video](https://img.youtube.com/vi/VMHx30aUnR4/0.jpg)](https://www.youtube.com/watch?v=VMHx30aUnR4)
+
+## CORS Policy Configuration
+
+To avoid CORS policy issues, ensure the following URLs are allowed on your website. Add them to your CORS configuration or trusted domains list.
+
+| **Domain** | **Description** | **Usage** |
+| --- | --- | --- |
+| https://\*.skynettechnologies.com | Skynet Technologies (Global Domain) | API access and resources |
+| https://\*.skynettechnologies.us | Skynet Technologies (US Domain) | API access and resources |
+| https://\*.googleapis.com | Google APIs | Services like Fonts, Translation |
+| https://\*.gstatic.com | Fonts APIs | Custom Fonts |
+| https://vlibras.gov.br | VLibras – Brazilian Sign Language Service | Sign Language |
+| https://ipapi.co | ipapi – IP Geolocation API | Called once when the settings form is first opened in a browser session to detect an EU location and add the EU-based widget script (endpoint: `/json/`) |
 
 **Instructions**
 
-1.  Update your server's CORS configuration to include these URLs.
-2.  Ensure wildcard subdomains (\*) are supported where necessary.
-3.  Verify the application functionality by testing requests to these domains.
-4.  If issues persist, consult the documentation for CORS configuration guidance.
+1. Update your server's CORS configuration to include these URLs.
+2. Ensure wildcard subdomains (\*) are supported where necessary.
+3. Verify functionality by testing requests to these domains.
+4. If issues persist, consult the documentation for CORS configuration guidance.
 
-**Documentation**
+## Documentation
 
-*   **[Odoo Accessibility App](https://www.skynettechnologies.com/odoo-accessibility-app)**
-*   **[How to install an accessibility Odoo WCAG compliance app?](https://www.skynettechnologies.com/blog/odoo-web-accessibility-widget-installation)**
-*   [**Odoo WCAG compliance accessibility - Features Guide**](https://www.skynettechnologies.com/sites/default/files/accessibility-widget-features-list.pdf)
+- [**Odoo Accessibility Module**](https://www.skynettechnologies.com/odoo-accessibility-app)
+- [**How to install the accessibility widget on Odoo**](https://www.skynettechnologies.com/blog/odoo-web-accessibility-widget-installation)
+- [**Free Accessibility Widget Features Guide**](https://www.skynettechnologies.com/sites/default/files/Free-Accessibility-Widget-Features-Guide.pdf)
+- [**Free Widget vs Paid App Comparison**](https://www.skynettechnologies.com/installation-guide/free-vs-paid-accessibility-widget-comparison-video)
+
+## Support
 
 **Submit a Support Request**
 
-Please visit our  [**support page**](https://www.skynettechnologies.com/report-accessibility-problem)  and fill out the form. Our team will get back to you as soon as possible.
+Visit our [**support page**](https://www.skynettechnologies.com/report-accessibility-problem) and fill out the form. Our team will get back to you as soon as possible.
 
 **Send Us an Email**
 
-Alternatively, you can send an email to our support team:  [**hello@skynettechnologies.com**](mailto:hello@skynettechnologies.com)
+Email our support team: [**hello@skynettechnologies.com**](mailto:hello@skynettechnologies.com)
 
-**Accessibility Paid Add-on Services**
+## Accessibility Paid Add-on Services
 
-**[Odoo manual accessibility audit](https://www.skynettechnologies.com/website-accessibility-audit)**
+[**Manual Accessibility Audit**](https://www.skynettechnologies.com/website-accessibility-audit)
 
-*   Enhance inclusivity and user experience by evaluating Odoo website’s accessibility by [web accessibility consultant](https://www.skynettechnologies.com/web-accessibility-consultant) .
-*   WCAG 2.0 / WCAG 2.1 / WCAG 2.2 Level AA conformance testing
-*   Automated, semi-automated testing
-*   Manual testing
-*   Simple before-after UI/UX recommendations on how to fix the issues
-*   Comprehensive audit report
+- Evaluate your website's accessibility with a [web accessibility consultant](https://www.skynettechnologies.com/web-accessibility-consultant).
+- WCAG 2.0 / 2.1 / 2.2 Level AA conformance testing
+- Automated, semi-automated, and manual testing
+- Simple before-after UI/UX recommendations on how to fix the issues
+- Comprehensive audit report
 
-**[Odoo site manual accessibility remediation](https://www.skynettechnologies.com/full-website-accessibility-remediation)**
+[**Manual Accessibility Remediation**](https://www.skynettechnologies.com/full-website-accessibility-remediation)
 
-Enhance Odoo site accessibility and inclusivity with our manual accessibility remediation add-on. This service includes fixing accessibility issues and thorough remediation of website manually. Our experts ensure accessibility with WCAG standards, improve user experience for those with disabilities, and provide a detailed report on the improvements made.
+Our experts manually fix accessibility issues across your website to meet WCAG standards, improve the experience for people with disabilities, and provide a detailed report of the improvements made.
 
-[**PDF/Document Accessibility Remediation**](https://www.skynettechnologies.com/pdf-accessibility-remediation)
+[**VPAT Report / Accessibility Conformance Report (ACR)**](https://www.skynettechnologies.com/vpat-accessibility-conformance-report)
 
-The PDF / Document Remediation provides a list of inaccessible PDFs and remediated PDFs from where you can request PDF remediation service.
+The Voluntary Product Accessibility Template (VPAT), also known as an Accessibility Conformance Report (ACR), starts with an audit and documents the current accessibility of a website, application, or other digital asset.
 
-**[VPAT Report/Accessibility Conformance Report (ACR)](https://www.skynettechnologies.com/vpat-accessibility-conformance-report)**
+## Accessibility Paid Add-ons
 
-The Voluntary Product Accessibility Template (VPAT), also known as an ACR (Accessibility Conformance Report) starts with an audit and provides current details for an accessible website, application, or any other digital assets.
+A faster, cost-effective way to extend accessibility across your website and documents.
 
-**Accessibility Odoo Widget Paid Add-ons**
+[**SkynetAccessibility Scanner**](https://www.skynettechnologies.com/accessibility-scanning-and-monitoring)
+
+Automatically scan and monitor your website for WCAG and ADA issues, and track compliance progress quickly.
+
+[**SkynetA11y PDF Remediation**](https://www.skynettechnologies.com/pdf-accessibility-remediation)
+
+AI-powered PDF accessibility remediation - upload PDFs, scan website PDFs, and download remediated files.
+
+[**MS Office File Accessibility Checker**](https://www.skynettechnologies.com/file-accessibility-checker)
+
+Microsoft Office files (Word, Excel, PowerPoint) accessible quickly and cost-effectively.
+
+[**Voice Search**](https://www.skynettechnologies.com/voice-enabled-search)
+
+Let visitors search your website using their voice.
 
 [**White Label Accessibility**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)
 
-Remove the Skynet Technologies logo as well as all of the footer links, popups, report a problem link and more for full white label control.
+Remove the Skynet Technologies logo and all footer links, popups, the "report a problem" link, and more for full white-label control.
 
-[**Instant live site translations**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons) **for Odoo stores**
+[**Instant Live Site Translations**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)
 
-Translate Odoo store into over 140 languages instantly to enhance accessibility for non-native speakers, individuals with language acquisition difficulties, and those with learning disabilities.
+Translate your website into over 190 languages instantly to enhance accessibility for non-native speakers, individuals with language acquisition difficulties, and those with learning disabilities.
 
-[**Modify Accessibility Menu**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons) **for Odoo Store**
+[**Modify Accessibility Menu**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)
 
-Build and fine-tune widget with the Modify Menu option. Reorder, remove and restructure the widget buttons to fit users’ specific accessibility needs.
+Reorder, remove, and restructure menu buttons to fit users' specific accessibility needs.
 
-**Odoo Accessibility Partnership Opportunities**
+## Partnership Opportunities
 
-[**Odoo accessibility agencies partnership**](https://www.skynettechnologies.com/agency-partners)
+[**Agency Accessibility Partnership**](https://www.skynettechnologies.com/agency-partners)
 
-Partner with us as an agency to provide comprehensive Odoo ADA, EAA, WCAG accessibility solutions to clients. Get access to exclusive resources, training, and support to implement and manage accessibility features effectively.
+Partner with us as an agency to provide comprehensive ADA, EAA, and WCAG accessibility solutions to clients. Get access to exclusive resources, training, and support to implement and manage accessibility features effectively.
 
-[**Odoo accessibility affiliate partnership**](https://www.skynettechnologies.com/affiliate-partner)
+[**Affiliate Partnership**](https://www.skynettechnologies.com/affiliate-partner)
 
-Sign up for our affiliate program and earn commissions by promoting accessibility Odoo plugin. Share our widget with your network and help businesses improve their website accessibility while generating revenue.
+Earn commissions by promoting our accessibility solutions and help businesses improve their website accessibility.
 
-For more details, explore  [**Odoo accessibility partnership opportunities**](https://www.skynettechnologies.com/partner-program)
+For more details, explore [**accessibility partnership opportunities**](https://www.skynettechnologies.com/partner-program).
 
-Screenshots
------------
+## Screenshots
 
 ![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-1-free.jpg?v=3)
 
@@ -131,15 +306,20 @@ Screenshots
 
 ![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-4-free.jpg?v=3)
 
-Video
------
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-5-free.jpg?v=3)
 
-[![All in One Accessibility Website Widget](https://img.youtube.com/vi/X70XtvGyvSs/0.jpg)](https://www.youtube.com/watch?v=X70XtvGyvSs)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-6-free.jpg?v=3)
 
-**Credits**
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-7-free.jpg?v=3)
 
-This addon is developed and maintained by  [website accessibility company](https://www.skynettechnologies.com/) \- Skynet Technologies USA LLC
+## Credits
 
-**Current Maintainers**
+This module is developed and maintained by [website accessibility remediation company](https://www.skynettechnologies.com/) – Skynet Technologies USA LLC.
 
-*   [**Skynet Technologies USA LLC**](https://github.com/skynettechnologies)
+## Current Maintainers
+
+- [**Skynet Technologies USA LLC**](https://github.com/skynettechnologies)
+
+---
+
+_README Version: 26.10.27_
